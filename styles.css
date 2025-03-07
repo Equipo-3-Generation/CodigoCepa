@@ -1,0 +1,56 @@
+.navbar {
+    background-color: red;
+    position: relative;
+}
+
+.navbar-brand {
+    position: absolute;
+    top: 5px; 
+    left: 2%; 
+    z-index: 1; /* Se mantiene debajo del menú */
+}
+
+.navbar-collapse {
+    z-index: 2; /* Se pone encima del logo */
+    justify-content: center;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.container-team {
+    width: 100px; /* Configurar con el diámetro deseado */
+    height: 100px; /* La altura debe ser igual al ancho */
+    border-radius: 50%; /* Hacer el borde circular */
+    overflow: hidden; /* Esconder el sobrante */
+    display: flex; /* Para centrar la imagen */
+    justify-content: center; /* Centrar la imagen horizontalmente */
+    align-items: center; /* Centrar la imagen verticalmente */
+}
+
+.img-team {
+    width: 100%; /* Mantener el aspect ratio */
+    height: auto; /* Asegurarse de que la imagen cubra el 100% de la altura */
+}
+
+.footer {
+    font-size: 14px;
+    background-color: rgb(243, 241, 241);
+}
+
+.codigo-cepa {
+    text-decoration: none; 
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .extra-s {
+        margin-left: auto;
+    }
+    .text-s {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
