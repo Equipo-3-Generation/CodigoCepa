@@ -1,56 +1,156 @@
-.navbar {
-    background-color: red;
-    position: relative;
+#barra {
+    background-color: #F21116 !important; /* Rojo */
 }
-
-.navbar-brand {
-    position: absolute;
-    top: 5px; 
-    left: 2%; 
-    z-index: 1; /* Se mantiene debajo del menú */
+#gris {
+    background-color: #b4b4af; /* Gris claro */
 }
-
-.navbar-collapse {
-    z-index: 2; /* Se pone encima del logo */
-    justify-content: center;
-}
-
-.logo {
-    max-width: 150px;
+#central {
+    width: 15%;
     height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    
+  }
+#mi-principal {
+    display: flex;
+    justify-content: center; /* Centra el menú */
+    gap: 40px; /* Espaciado entre elementos */
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+#mi-principal li {
+    position: relative; /* Necesario para el efecto de borde */
+}
+#mi-principal li:active {
+    outline: 3px solid white; /* Agrega un borde blanco al hacer clic */
+    border-radius: 10px;
+    transform: scale(0.98); /* Un pequeño efecto de escala para que parezca un botón */
+    transition: transform 0.2s ease;
 }
 
-.container-team {
-    width: 100px; /* Configurar con el diámetro deseado */
-    height: 100px; /* La altura debe ser igual al ancho */
-    border-radius: 50%; /* Hacer el borde circular */
-    overflow: hidden; /* Esconder el sobrante */
-    display: flex; /* Para centrar la imagen */
-    justify-content: center; /* Centrar la imagen horizontalmente */
-    align-items: center; /* Centrar la imagen verticalmente */
+
+#iconos-derecha {
+    display: flex;
+    gap: 15px; /* Espaciado entre íconos */
 }
 
-.img-team {
-    width: 100%; /* Mantener el aspect ratio */
-    height: auto; /* Asegurarse de que la imagen cubra el 100% de la altura */
+#iconos-derecha img {
+    width: 30px; /* Ajusta el tamaño de los íconos */
+}
+footer {
+    background-color: #CCCCCC !important; /* Rojo */
 }
 
-.footer {
-    font-size: 14px;
-    background-color: rgb(243, 241, 241);
-}
-
-.codigo-cepa {
-    text-decoration: none; 
-    color: black;
-}
-
-@media (max-width: 768px) {
-    .extra-s {
-        margin-left: auto;
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 40px;
+    padding: 20px;
+    padding-top: 40px;
+    background-color: #1E3A5F; /* Azul */
+  }
+  
+  .tarjeta {
+    width: 22%;
+    height: 40%; 
+    perspective:  1000px;;
+    background-color: #CCCCCC; /* Gris */
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tarjeta img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .tarjeta h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .tarjeta p {
+    font-size: 0.9em;
+    color: #8f3f3f;
+  }
+  .tarjeta-inner {
+    width: 100%;
+    min-height: 470px;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  
+  .tarjeta:hover .tarjeta-inner {
+    transform: rotateY(180deg); /* Volteamos la tarjeta al pasar el mouse */
+  }
+  
+  .tarjeta-front, .tarjeta-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la parte de atrás cuando se voltea */
+  }
+  
+  .tarjeta-front {
+    background-color: #e0e0e0; /* Gris */
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tarjeta-back {
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    transform: rotateY(180deg); /* Volteamos la parte posterior */
+    border-radius: 8px;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .tarjeta {
+      width: 45%;
     }
-    .text-s {
-        padding-left: 5%;
-        padding-right: 5%;
+  }
+  
+  @media (max-width: 480px) {
+    .tarjeta {
+      width: 100%;
     }
-}
+  }
+  /* Estilo para el carrusel */
+#carouselExampleIndicators {
+    width: 70%;    
+    height: auto;          /* Definir el 70% de ancho */
+    margin: 0 auto; 
+    margin-top: 40px;         /* Centrar el carrusel horizontalmente */
+  }
+  
+  /* Estilo para centrar las filas */
+  .row {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;     /* Centrar verticalmente */
+    text-align: center;      /* Centrar el texto */
+  }
+  
+  /* Ajustar el tamaño del carrusel para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    #carouselExampleIndicators {
+      width: 80%;            /* Ajustar el ancho del carrusel en pantallas pequeñas */
+    }
+  }
+  
