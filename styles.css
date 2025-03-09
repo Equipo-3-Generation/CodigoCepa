@@ -56,8 +56,8 @@ footer {
   
   .tarjeta {
     width: 22%;
-    height: 40%; 
-    perspective:  1000px;;
+    max-width: 420px;
+    aspect-ratio: 3 / 4; 
     background-color: #CCCCCC; /* Gris */
     border-radius: 8px;
     padding: 10px;
@@ -82,7 +82,7 @@ footer {
   }
   .tarjeta-inner {
     width: 100%;
-    min-height: 470px;
+    height: 100%;
     transition: transform 0.5s;
     transform-style: preserve-3d;
     position: relative;
@@ -119,38 +119,20 @@ footer {
     border-radius: 8px;
   }
   
+
+
   /* Responsividad */
   @media (max-width: 768px) {
     .tarjeta {
       width: 45%;
+      height:30% !important;
+
     }
   }
-  
+
   @media (max-width: 480px) {
     .tarjeta {
-      width: 100%;
+      width: 90%;
+      height: 250px !important;
     }
-  }
-  /* Estilo para el carrusel */
-#carouselExampleIndicators {
-    width: 70%;    
-    height: auto;          /* Definir el 70% de ancho */
-    margin: 0 auto; 
-    margin-top: 40px;         /* Centrar el carrusel horizontalmente */
-  }
-  
-  /* Estilo para centrar las filas */
-  .row {
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center;     /* Centrar verticalmente */
-    text-align: center;      /* Centrar el texto */
-  }
-  
-  /* Ajustar el tamaño del carrusel para pantallas más pequeñas */
-  @media (max-width: 768px) {
-    #carouselExampleIndicators {
-      width: 80%;            /* Ajustar el ancho del carrusel en pantallas pequeñas */
-    }
-  }
-  
+}
