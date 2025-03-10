@@ -1,3 +1,5 @@
+
+ /* AQUI INICIA EL NAV BAR*/
 #barra {
     background-color: #F21116 !important; /* Rojo */
 }
@@ -5,7 +7,7 @@
     background-color: #b4b4af; /* Gris claro */
 }
 #central {
-    width: 15%;
+    width: 200px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -39,9 +41,28 @@
 #iconos-derecha img {
     width: 30px; /* Ajusta el tamaño de los íconos */
 }
+
+ /* AQUI TERMINA EL NABVBAR*/
 footer {
     background-color: #CCCCCC !important; /* Rojo */
 }
+.parrafito {
+  background-color: #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+}
+.borde-azul {
+ 
+  border: 25px solid #1E3A5F; /* Borde azul grueso */
+  padding: 10px; /* Espaciado entre el borde y el contenido */
+  display: inline-block;
+  border-radius: 12px; /* Opcional: para esquinas redondeadas */
+  margin-bottom: 80px;
+}
+
 
 .contenedor {
     display: flex;
@@ -66,10 +87,11 @@ footer {
   }
   
   .tarjeta img {
-    width: 100%;
-    height: auto;
+  width: 85%;
+  height: auto;
     border-radius: 4px;
   }
+
   
   .tarjeta h3 {
     font-size: 1.2em;
