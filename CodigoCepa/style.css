@@ -1,0 +1,32 @@
+/* Estilo personalizado para el formulario de contacto */
+#formulario-contacto {
+    background-color: #f9f9f9; /* Fondo suave */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#formulario-contacto .form-control {
+    border-radius: 8px;
+}
+
+#formulario-contacto button {
+    background-color: #F21116; /* Rojo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#formulario-contacto button:hover {
+    background-color: #D10F12; /* Rojo oscuro al hacer hover */
+}
+
+#formulario-contacto .form-group {
+    margin-bottom: 20px;
+}
