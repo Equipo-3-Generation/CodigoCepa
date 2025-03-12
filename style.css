@@ -1,0 +1,85 @@
+/* NAV BAR */
+#barra {
+    background-color: #F21116 !important; /* Rojo */
+}
+
+#gris {
+    background-color: #b4b4af; /* Gris claro */
+}
+
+#central {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+#mi-principal {
+    display: flex;
+    justify-content: center; /* Centra el menú */
+    gap: 40px; /* Espaciado entre elementos */
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+#mi-principal li {
+    position: relative; /* Necesario para el efecto de borde */
+}
+
+#mi-principal li:active {
+    outline: 3px solid white; /* Agrega un borde blanco al hacer clic */
+    border-radius: 10px;
+    transform: scale(0.98); /* Un pequeño efecto de escala para que parezca un botón */
+    transition: transform 0.2s ease;
+}
+
+#iconos-derecha {
+    display: flex;
+    gap: 15px; /* Espaciado entre íconos */
+}
+
+#iconos-derecha img {
+    width: 30px; /* Ajusta el tamaño de los íconos */
+}
+
+/* FOOTER */
+footer {
+    background-color: #CCCCCC !important; /* Color gris */
+}
+
+
+
+/* Estilo personalizado para el formulario de contacto */
+#formulario-contacto {
+    background-color: #f9f9f9; /* Fondo suave */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#formulario-contacto .form-control {
+    border-radius: 8px;
+}
+
+#formulario-contacto button {
+    background-color: #F21116; /* Rojo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#formulario-contacto button:hover {
+    background-color: #D10F12; /* Rojo oscuro al hacer hover */
+}
+
+#formulario-contacto .form-group {
+    margin-bottom: 20px;
+}
