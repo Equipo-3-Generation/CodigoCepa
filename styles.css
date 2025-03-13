@@ -1,5 +1,5 @@
 
- /* AQUI INICIA EL NAV BAR*/
+/* AQUI INICIA EL NAV BAR*/
 #barra {
     background-color: #F21116 !important; /* Rojo */
 }
@@ -42,7 +42,7 @@
     width: 30px; /* Ajusta el tamaño de los íconos */
 }
 
- /* AQUI TERMINA EL NABVBAR*/
+/* AQUI TERMINA EL NABVBAR*/
 footer {
     background-color: #CCCCCC !important; /* Rojo */
 }
@@ -55,7 +55,7 @@ footer {
   max-width: 600px;
 }
 .borde-azul {
- 
+
   border: 25px solid #1E3A5F; /* Borde azul grueso */
   padding: 10px; /* Espaciado entre el borde y el contenido */
   display: inline-block;

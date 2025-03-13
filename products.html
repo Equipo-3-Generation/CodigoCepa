@@ -3,59 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <title>h3rmeDia</title>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img class="logo" src="/pictures/h3rmedia.png"></a>
-                <button class="navbar-toggler ms-sm-auto extra-s" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Logo alineado a la izquierda -->
+                <a class="navbar-brand me-auto" href="index.html">
+                    <img src="pictures/h3rmedia.png" alt="Logo" width="120">
+                </a>
+                <div class="d-flex ms-auto">
+                    <a href="login.html" id="gris" class="btn  text-dark me-2">Iniciar Sesión</a>
+                    <a href="register.html" class="btn btn-dark text-white">Registrarse</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" id="barra">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                        <a class="nav-link" href="#">Producto</a>
-                        <a class="nav-link" href="#">Nosotros</a>
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </div>
+                    
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!-- Menú principal centrado -->
+                    <ul id="mi-principal" class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" aria-current="page" href="products.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" aria-current="page" href="aboutUs.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" aria-current="page" href="contactUs.html">Contáctanos</a>
+                        </li>
+                    </ul>
+            
+                    <!-- Íconos alineados a la derecha -->
+                    <ul class="navbar-nav ms-auto d-flex align-items-center" id="iconos-derecha">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="#"><img src="pictures/icono-usuario.png" alt="Usuario"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" id="carrito" href="#"><img src="pictures/carrito.png" alt="Carrito"></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- Barra centro -->
-        <div>
-            <!-- Cuadro búsqueda -->
-            <div>
-                <input type="search">
-            
-            </div>
-        </div>
-
-        <!-- Formulario simple que enviará una petición GET -->
-        <form action="">
-            <label for="GET-name">Nombre:</label>
-            <input id="GET-name" type="text" name="name" />
-            <input type="submit" value="Save" />
-        </form>
-
-        <!-- Formulario simple que enviará una petición POST -->
-        <form action="" method="post">
-            <label for="POST-name">Nombre:</label>
-            <input id="POST-name" type="text" name="name" />
-            <input type="submit" value="Save" />
-        </form>
-
-        <div class="container text-center">
+        <div class="container-fluid border">
+            <h3>Filamento PLA con el mejor precio</h3>
             <div class="row">
                 <div class="col">
-                    Column
+                    <div class="card" style="width: auto">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col">
                     Column
@@ -71,7 +89,7 @@
         <div class="container-fluid py-5 mt-5">
             <div class="row">
                 <div class="col-lg-3">
-                    <a href="index.html"><img src="/pictures/h3rmedia.png" class="logo mb-3"></a>
+                    <a href="index.html"><img src="pictures/h3rmedia.png" width="200px" ></a>
                     <p>Este fue un proyecto creado por el equipo CodigoCepa como parte de la CH52 del programa Generation México.</p>
                     <p>¡Gracias por visitar!</p>
                     <p>© 2025 h3rmeDia. All rights reserved.</p>
