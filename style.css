@@ -43,6 +43,18 @@
     width: 30px;
 }
 
+.imagen-box {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* FOOTER */
 footer {
     background-color: #CCCCCC !important;
