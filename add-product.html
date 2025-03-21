@@ -48,105 +48,130 @@
 
     <!-- MAIN -->
     <main>
-        <div class="container-fluid my-5 mx-3">
+        <div class="container-fluid text-center my-5">
             <h1>Formulario de carga de productos</h1>
             <p>El formulario de carga de productos le permite a los usuarios agregar un nuevo producto a la tienda de impresión 3D.</p>
         </div>
-        <div class="container-fluid my-4 mx-3">
-            <!-- Nombre del producto -->
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Nombre del producto</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1">
-            </div>
-            <!-- Descripción -->
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <!-- Precio -->
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="exampleFormControlInput1">
-            </div>
-            <!-- Categoría -->
-            <div class="form-floating mb-3">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                    <option selected>Todo</option>
-                    <option value="1">Prototipo</option>
-                    <option value="2">Repuesto</option>
-                    <option value="3">Diseño artístico</option>
-                </select>
-                <label for="floatingSelect">Categoría</label>
-            </div>
-            <!-- Material -->
-            <div>
-                <label class="form-label">Material</label>
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        PLA
-                    </label>
+        <div class="container-fluid my-4">
+            <div class="row">
+                <div class="col-2">
                 </div>
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        ABS
-                    </label>
+                <div class="col">
+                    <!-- Nombre del producto -->
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label fw-bold">Nombre del producto</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                    <!-- Descripción -->
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label fw-bold">Descripción</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- Categoría -->
+                            <label for="floatingSelect" class="form-label fw-bold">Categoría</label>
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                    <option selected>Todo</option>
+                                    <option value="1">Prototipo</option>
+                                    <option value="2">Repuesto</option>
+                                    <option value="3">Diseño artístico</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <!-- Stock disponible -->
+                            <label class="form-label fw-bold">Stock disponible</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" id="exampleFormControlInput1">
+                                <span class="input-group-text">PIEZAS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- Precio -->
+                            <label class="form-label fw-bold">Precio</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" id="exampleFormControlInput1">
+                                <span class="input-group-text">MXN</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- Peso -->
+                            <label class="form-label fw-bold">Peso</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" id="exampleFormControlInput1">
+                                <span class="input-group-text">GRAMOS</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dimensiones -->
+                    <label class="form-label fw-bold">Dimensiones del producto</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Largo</span>
+                        <input type="number" class="form-control">
+                        
+
+                        <span class="input-group-text">Ancho</span>
+                        <input type="number" class="form-control">
+
+                        <span class="input-group-text">Alto</span>
+                        <input type="number" class="form-control">
+
+                        <span class="input-group-text">CM</span>
+                    </div>
+                    <!-- Material -->
+                    <div>
+                        <label class="form-label fw-bold">Material</label>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                PLA
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                ABS
+                            </label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                PETG
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Imagen del producto -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label fw-bold">Imagen del producto</label>
+                            <input class="form-control" type="file" id="formFile" accept="image/*">
+                        </div>
+                        <div id="previewContainer" class="mb-3">
+                            <img id="imagePreview" src="" alt="Vista previa" style="max-width: 200px; display: none;">
+                        </div>
+                    </form>
+                    <!-- Personalizacion -->
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            El cliente puede pedir personalizacion.
+                        </label>
+                    </div>
+                    <!-- Boton -->
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary mb-3">Registrar</button>
+                    </div>
                 </div>
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        PETG
-                    </label>
+                <div class="col-2">
+                    
                 </div>
             </div>
-            <!-- Imagen del producto -->
-            <div class="mb-3">
-                <label for="formFileMultiple" class="form-label">Imagen del producto</label>
-                <input class="form-control" type="file" id="formFileMultiple" multiple>
-            </div>
-            <!-- Stock disponible -->
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Cantidad de unidades disponibles</label>
-                <input type="number" class="form-control" id="exampleFormControlInput1">
-            </div>
-            <!-- Dimensiones -->
-            <label class="form-label">Dimensiones del producto</label>
-            <div class="input-group mb-3">
-                <span class="input-group-text">Largo</span>
-                <input type="number" class="form-control">
-                
-
-                <span class="input-group-text">Ancho</span>
-                <input type="number" class="form-control">
-
-                <span class="input-group-text">Alto</span>
-                <input type="number" class="form-control">
-
-                <select class="form-select" id="inputGroupSelect01">
-                    <option selected>Unidades</option>
-                    <option value="1">Centímetros (cm)</option>
-                    <option value="2">Mílímetros (mm)</option>
-                    <option value="3">Pulgadas (in)</option>
-                </select>
-            </div>
-            <!-- Peso -->
-            <label class="form-label">Peso del producto</label>
-            <div class="input-group mb-3">
-                <input type="number" class="form-control" id="exampleFormControlInput1">
-                    <select class="form-select" id="inputGroupSelect01">
-                        <option selected>Unidades</option>
-                        <option value="1">Gramos (g)</option>
-                        <option value="2">Kilogramos (kg)</option>
-                    </select>
-            </div>
-            <!-- Personalizacion -->
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    El cliente puede pedir personalizacion.
-                </label>
-            </div>
+            
         </div>
     </main>
 
@@ -183,6 +208,7 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
