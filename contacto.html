@@ -49,25 +49,33 @@
         <div class="contenedor-marco p-4 mb-4">
             <h1 class="fw-bold">Contáctanos</h1>
             <p class="text-muted">Llena nuestro formulario y te responderemos dentro de 24 hrs.</p>
-            <p class="text-muted">email: support@h3rmedia.com</p>
+            <p class="text-muted">email: soporte.h3rmedia@gmail.com</p>
         </div>
 
         <!-- Formulario de contacto -->
         <div class="container">
-            <form id="formulario-contacto" action="#" method="POST">
+            <form id="formulario-contacto" action="https://formspree.io/f/xvgkkkpd" method="POST">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="formGroupExampleInput" class="form-label"></label>
-                        <input type="text" class="form-control" id="name" placeholder="Tu Nombre">
+                        <label for="name" class="form-label"></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Tu Nombre" required>
+                        <span class="error-message"></span>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="email" class="form-label"></label>
-                        <input type="email" class="form-control" id="email" required placeholder="Tu correo electrónico">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Tu correo electrónico" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="phone" class="form-label"></label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Tu teléfono" required pattern="[0-9]{10}">
+                        <span class="error-message"></span>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label"></label>
-                    <textarea class="form-control" id="message" rows="5" required placeholder="Tu Mensaje ♥"></textarea>
+                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tu Mensaje ♥" required></textarea>
+                    <span class="error-message"></span>
                 </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-dark">Enviar</button>
@@ -93,7 +101,7 @@
                         <li class="list-group-item list-group-item-action"><a class="codigo-cepa" href="#">Brenda Saldívar</a></li>
                         <li class="list-group-item list-group-item-action"><a class="codigo-cepa" href="#">Edna Eustaquio</a></li>
                         <li class="list-group-item list-group-item-action"><a class="codigo-cepa" href="#">Erika Cruz</a></li>
-                         <li class="list-group-item list-group-item-action"><a class="codigo-cepa" href="#">Jocelyne Montoya</a></li>
+                        <li class="list-group-item list-group-item-action"><a class="codigo-cepa" href="#">Jocelyne Montoya</a></li>
                         
                     </ul>
                 </div>
@@ -104,6 +112,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
