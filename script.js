@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // --> Función para vista previa de imágenes del formulario de creación de objetos
 
 document.addEventListener('DOMContentLoaded', function () {
-    const inputFile = document.getElementById('formFile');
-    const imagePreview = document.getElementById('imagePreview');
+    const inputFile = document.getElementById('carga-imagen');
+    const imagePreview = document.getElementById('vista-previa"');
     
     inputFile.addEventListener('change', function(event) {
         const file = event.target.files[0];
@@ -60,4 +60,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Fin de la función
+// Fin de la función del formulario
+
+// --> Inicio de la función para la creación de objetos
+const productos = [];
+function agregarProducto() {
+    const nuevoProducto = {
+        id: productos.length + 1,
+        nombre: document.getElementById("nombre-producto").value,
+        descripción: document.getElementById("descripcion-producto").value,
+        categoria: document.getElementById("categoria-producto").value,
+        
+
+    }
+}
+// Fin de la función para creación de objetos
+
