@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // --> Función para vista previa de imágenes del formulario de creación de objetos
 
 document.addEventListener('DOMContentLoaded', function () {
-    const inputFile = document.getElementById('carga-imagen');
-    const imagePreview = document.getElementById('vista-previa"');
+    const inputFile = document.getElementById('imagen-producto');
+    const imagePreview = document.getElementById('vista-previa');
     
     inputFile.addEventListener('change', function(event) {
         const file = event.target.files[0];
@@ -63,6 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // Fin de la función del formulario
 
 // --> Inicio de la función para la creación de objetos
+
+// ARRAY CON CARACTERÍSTICAS
 const productos = [];
 function agregarProducto() {
     const nuevoProducto = {
@@ -70,9 +72,61 @@ function agregarProducto() {
         nombre: document.getElementById("nombre-producto").value,
         descripción: document.getElementById("descripcion-producto").value,
         categoria: document.getElementById("categoria-producto").value,
-        
+        stock: document.getElementById("stock-producto").value,
+        precio: document.getElementById("precio-producto").value,
+        peso: document.getElementById("peso-producto").value,
+        dimensiones: `${document.getElementById("largo-producto").value} X ${document.getElementById("ancho-producto").value} X ${document.getElementById("alto-producto").value}` ,
+        material: obtenerValores().materiales,
+        imagen: "Imagen",
+        personalización: obtenerValores().personalizacion 
+    }
 
+    productos.push(nuevoProducto);
+    console.log(productos);
+    console.log("Hice algo");
+}
+
+// FUNCIÓN QUE OBTIENE LOS VALORES DE CHECKBOXES
+function obtenerValores(){
+    // Selecciona todos los checkboxes dentro del contenedor
+    const checkboxes = document.querySelectorAll('#material-producto .form-check-input');
+
+    // MATERIALES
+    // Array para almacenar los valores seleccionados
+    const materiales = [];
+
+    // Recorre los checkboxes y verifica cuáles están seleccionados
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            materiales.push(checkbox.value);
+        }
+    });
+
+    //PERSONALIZACIÓN
+    const personalizacion = document.getElementById('personalizacion').checked;
+
+    // Devuelve un objeto con las propiedades
+    return {
+        materiales: materiales.join(', '),
+        personalizacion: personalizacion
     }
 }
+
+// FUNCIÓN QUE LEE LOS DATOS DE LAS CASILLAS
+function prueba(){
+    console.log("Nombre: " + document.getElementById("nombre-producto").value);
+    console.log("Descripción: " + document.getElementById("descripcion-producto").value);
+    console.log("Categoría: " + document.getElementById("categoria-producto").value);
+    console.log("Stock: " + document.getElementById("stock-producto").value);
+    console.log("Precio: " + document.getElementById("precio-producto").value);
+    console.log("Peso: " + document.getElementById("peso-producto").value);
+    console.log(`Dimensiones: Largo ${document.getElementById("largo-producto").value}, Ancho ${document.getElementById("ancho-producto").value}, Alto ${document.getElementById("alto-producto").value}`);
+    console.log(`Material: ${obtenerValores().materiales}`);
+    console.log(`Imagen del producto: ${document.getElementById("imagen-producto").files[0]}`);
+    console.log(`Personalización: ${obtenerValores().personalizacion}`)
+    
+    
+}
+
 // Fin de la función para creación de objetos
 
