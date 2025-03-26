@@ -77,12 +77,14 @@ function agregarProducto() {
         peso: document.getElementById("peso-producto").value,
         dimensiones: `${document.getElementById("largo-producto").value} X ${document.getElementById("ancho-producto").value} X ${document.getElementById("alto-producto").value}` ,
         material: obtenerValores().materiales,
-        imagen: "Imagen",
+        imagen: document.getElementById("imagen-producto").files[0],
         personalización: obtenerValores().personalizacion 
     }
 
     productos.push(nuevoProducto);
-    console.log(productos);
+    let jsonArray = JSON.stringify(nuevoProducto);
+    document.getElementById("producto-form").reset();
+    console.log(jsonArray);
     console.log("Hice algo");
 }
 
@@ -91,7 +93,7 @@ function obtenerValores(){
     // Selecciona todos los checkboxes dentro del contenedor
     const checkboxes = document.querySelectorAll('#material-producto .form-check-input');
 
-    // MATERIALES
+    // Materiales
     // Array para almacenar los valores seleccionados
     const materiales = [];
 
@@ -102,7 +104,7 @@ function obtenerValores(){
         }
     });
 
-    //PERSONALIZACIÓN
+    //Personalización
     const personalizacion = document.getElementById('personalizacion').checked;
 
     // Devuelve un objeto con las propiedades
@@ -111,6 +113,48 @@ function obtenerValores(){
         personalizacion: personalizacion
     }
 }
+
+// // IMPLEMENTACIÓN CON JSON
+// document.getElementById("btn-crear-producto").addEventListener("click", function (){
+//     // Capturar los valores del formulario
+//     const nombre = document.getElementById("nombre-producto").value;
+//     const descripcion = document.getElementById("descripcion-producto").value;
+//     const categoria = document.getElementById("descripcion-producto").value;
+//     const stock = document.getElementById("stock-producto");
+//     const precio = document.getElementById("precio-producto");
+//     const peso = document.getElementById("peso-producto");
+//     const dimensiones = document.getElementById("largo-producto");
+
+//     // Crear el objeto JSON
+//     const producto = {
+//         nombre: nombre,
+//         descripcion: descripcion,
+//         categoria: categoria,
+//         stock: stock,
+//         precio: parseFloat(precio),
+//         peso: parseFloat(peso),
+//         dimensiones: parseFloat(dimensiones) 
+//     };
+
+//     // Enviar los datos mediante fetch
+//     fetch("/api/productos", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(producto)
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log("Producto creado: ", data);
+//         alert("Producto creado con éxito");
+//     })
+//     .catch(error => {
+//         console.error("Error al crear el producto:", error);
+//         alert("Hubo un error al crear el producto");
+//     });
+// });
+
 
 // FUNCIÓN QUE LEE LOS DATOS DE LAS CASILLAS
 function prueba(){
@@ -126,6 +170,10 @@ function prueba(){
     console.log(`Personalización: ${obtenerValores().personalizacion}`)
     
     
+}
+
+function crearTarjeta(){
+    const dsd = 0;
 }
 
 // Fin de la función para creación de objetos
