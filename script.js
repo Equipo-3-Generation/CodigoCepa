@@ -172,9 +172,48 @@ function prueba(){
     
 }
 
-function crearTarjeta(){
-    const dsd = 0;
-}
-
+document.getElementById('btn-crear-producto').addEventListener('click', function() {
+    // Obtener los materiales seleccionados
+    const materiales = [];
+    if (document.getElementById('material-pla').checked) materiales.push('PLA');
+    if (document.getElementById('material-abs').checked) materiales.push('ABS');
+    if (document.getElementById('material-petg').checked) materiales.push('PETG');
+    
+    // Crear el objeto con los datos del producto
+    const producto = {
+        nombre: document.getElementById('nombre-producto').value,
+        descripcion: document.getElementById('descripcion-producto').value,
+        categoria: document.getElementById('categoria-producto').value,
+        stock: parseInt(document.getElementById('stock-producto').value) || 0,
+        precio: parseFloat(document.getElementById('precio-producto').value) || 0,
+        peso: parseFloat(document.getElementById('peso-producto').value) || 0,
+        dimensiones: {
+            largo: parseFloat(document.getElementById('largo-producto').value) || 0,
+            ancho: parseFloat(document.getElementById('ancho-producto').value) || 0,
+            alto: parseFloat(document.getElementById('alto-producto').value) || 0,
+            unidad: 'cm'
+        },
+        materiales: materiales,
+        personalizacion: document.getElementById('personalizacion').checked,
+        // Para la imagen podríamos guardar el nombre del archivo o procesarla luego
+        imagen: document.getElementById('imagen-producto').files[0]?.name || null
+    };
+    
+    // Convertir a JSON
+    const productoJSON = JSON.stringify(producto, null, 2);
+    
+    // Mostrar en consola
+    console.log('Producto en formato JSON:', productoJSON);
+    
+    // Limpiar el formulario
+    document.getElementById('producto-form').reset();
+    
+    // Ocultar vista previa de imagen si existe
+    const vistaPrevia = document.getElementById('vista-previa');
+    if (vistaPrevia) {
+        vistaPrevia.style.display = 'none';
+        vistaPrevia.src = '';
+    }
+});
 // Fin de la función para creación de objetos
 
