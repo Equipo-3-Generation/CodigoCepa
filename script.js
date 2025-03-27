@@ -208,7 +208,7 @@ document.getElementById('btn-crear-producto').addEventListener('click', function
     // Limpiar el formulario
     document.getElementById('producto-form').reset();
     
-    // Ocultar vista previa de imagen si existe
+    // Ocultar vista previa de imagen
     const vistaPrevia = document.getElementById('vista-previa');
     if (vistaPrevia) {
         vistaPrevia.style.display = 'none';
