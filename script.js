@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let telefono = document.getElementById("phone").value.trim();
         let mensaje = document.getElementById("message").value.trim();
 
+        
+
         // Validar que los campos no estén vacíos
         if (nombre === "" || email === "" || telefono === "" || mensaje === "") {
             alert("Por favor, completa todos los campos.");
