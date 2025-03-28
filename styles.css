@@ -49,46 +49,69 @@
   background-color: #CCCCCC !important; /* Rojo */
 
 footer {
-  background-color: #CCCCCC !important;
-  padding: 40px 20px;
+  background-color: #1E3A5F !important;
+  margin-top: 60px;
+  padding: 20px 20px;
   text-align: center;
+  color: #CCCCCC;
 }
 
 footer .col-lg-3 {
   text-align: left;
+  
 }
 
 footer .list-group-item {
   border: none;
   padding: 5px 0;
+  background-color:#1E3A5F;
+  color: #ccc;
 }
 
 .codigo-cepa {
   text-decoration: none;
-  color: black;
+  color: #ccc;
   transition: color 0.3s;
 }
 
 .codigo-cepa:hover {
   color: #F21116;
 }
+#footer-bottom {
+  background-color: #020c11;
+  padding: 20px;
+  color: #ccc;
+  text-align: center;
+}
  /* TERMINA FOOTER */
 
 .parrafito {
-  background-color: #ccc;
+  background-color: #f7f3f3;
   padding: 20px;
+  
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 600px;
 }
+.resaltado1 {
+  font-weight: bold;  /* Negritas */
+  color: #F21116; /* Color naranja o cualquier otro */
+  font-size: 30px;
+}
+.resaltado {
+  font-weight: bold;  /* Negritas */
+  color: #092cc7; /* Color naranja o cualquier otro */
+}
 .borde-azul {
-
-  border: 25px solid #1E3A5F; /* Borde azul grueso */
-  padding: 10px; /* Espaciado entre el borde y el contenido */
+ 
+  border: 25px solid #020c11; /* Borde azul grueso */
+  padding: 1px; /* Espaciado entre el borde y el contenido */
   display: inline-block;
   border-radius: 12px; /* Opcional: para esquinas redondeadas */
-  margin-bottom: 80px;
+  margin-top: 60px ;
+  margin-bottom: 60px;
+  
 }
 
 
@@ -100,14 +123,50 @@ footer .list-group-item {
     margin-top: 40px;
     padding: 20px;
     padding-top: 40px;
-    background-color: #1E3A5F; /* Azul */
+     /*  background-color: #1E3A5F; Azul */
+    background: linear-gradient(to top, #e01b25, #1E3A5F);
+  }
+  .about-us-inicio {
+    background-color: #1E3A5F;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 50px;
+  } 
+  .mag-3d{
+   width: 800px;
+  }
+  .parrafo-nosotras{
+    font-size: 20px;
+  }
+  .container-titular{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 35px;
+  }
+  .titular-equipo{
+    background-color: #F21116;
+    color: #f4f4f4;
+    padding: 24px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  .titular-equipo{
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    
   }
   
   .tarjeta {
     width: 28%;
     max-width: 420px;
     aspect-ratio: 3 / 4; 
-    background-color: #CCCCCC; /* Gris */
+    background-color: #abadad; /* Gris */
     border-radius: 8px;
     padding: 10px;
     text-align: center;
@@ -172,12 +231,26 @@ footer .list-group-item {
 
 
   /* Responsividad */
+  @media (max-width: 1250px) {
+
+    .about-us-inicio {
+      background-color: #1E3A5F;
+      display: flex;
+      flex-direction: column;
+      margin-top: 50px;
+    }
+
+  }
   @media (max-width: 768px) {
     .tarjeta {
       width: 45%;
       height:30% !important;
 
     }
+    .mag-3d{
+      width: 390px;
+     }
+
   }
 
   @media (max-width: 480px) {
@@ -185,6 +258,9 @@ footer .list-group-item {
       width: 90%;
       height: 250px !important;
     }
+    .mag-3d{
+      width: 150px;
+     }
 }
 /* FORMULARIO */
 
