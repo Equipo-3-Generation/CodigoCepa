@@ -1,63 +1,44 @@
 
-//validación para el formulario de contacto <3
-document.addEventListener("DOMContentLoaded", function () {
-    const formulario = document.getElementById("formulario-contacto");
+//Carrusel
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Página cargada correctamente.");
 
-    formulario.addEventListener("submit", function (event) {
-        event.preventDefault(); // Evita el envío automático
+    //Cards
 
-        let nombre = document.getElementById("name").value.trim();
-        let email = document.getElementById("email").value.trim();
-        let telefono = document.getElementById("phone").value.trim();
-        let mensaje = document.getElementById("message").value.trim();
+    const ratings = document.querySelectorAll(".rating");
 
-        // Validar que los campos no estén vacíos
-        if (nombre === "" || email === "" || telefono === "" || mensaje === "") {
-            alert("Por favor, completa todos los campos.");
-            return;
-        }
+    ratings.forEach(rating => {
+        let stars = rating.querySelectorAll("i");
+        let selectedRating = 0;
 
-        // Validar formato de email con expresión regular
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert("Por favor, introduce un correo válido.");
-            return;
-        }
+        stars.forEach(star => {
+            star.addEventListener("mouseover", function() {
+                highlightStars(stars, this.dataset.value);
+            });
 
-        // Validar teléfono (solo números y longitud de 10 dígitos)
-        let phoneRegex = /^[0-9]{10}$/;
-        if (!phoneRegex.test(telefono)) {
-            alert("Por favor, introduce un número de teléfono válido de 10 dígitos.");
-            return;
-        }
+            star.addEventListener("click", function() {
+                selectedRating = this.dataset.value;
+                highlightStars(stars, selectedRating, true);
+            });
 
-        // Si pasa todas las validaciones, se puede enviar el formulario
-        alert("Formulario enviado con éxito");
-        formulario.submit(); // Ahora sí envía el formulario
+            rating.addEventListener("mouseleave", function() {
+                highlightStars(stars, selectedRating);
+            });
+        });
     });
+
+    function highlightStars(stars, value, fixed = false) {
+        stars.forEach(star => {
+            let starValue = parseInt(star.dataset.value);
+            let selectedValue = parseInt(value);
+
+            if (starValue <= selectedValue) {
+                star.classList.add("bi-star-fill");
+                star.classList.remove("bi-star");
+            } else {
+                star.classList.add("bi-star");
+                star.classList.remove("bi-star-fill");
+            }
+        });
+    }
 });
-
-//aquí termina el formulario de contacto <3
-
-// --> Función para vista previa de imágenes del formulario de creación de objetos
-
-document.addEventListener('DOMContentLoaded', function () {
-    const inputFile = document.getElementById('formFile');
-    const imagePreview = document.getElementById('imagePreview');
-    
-    inputFile.addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            imagePreview.style.display = 'block'; // Muestra la imagen
-            imagePreview.src = e.target.result; // Asigna la URL generada al src de la imagen
-        };
-
-        if (file) {
-            reader.readAsDataURL(file); // Convierte el archivo a una URL y la asigna a la imagen
-        }
-    });
-});
-
-// Fin de la función
