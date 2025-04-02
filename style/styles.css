@@ -317,7 +317,150 @@ footer .list-group-item {
   text-align: center;
   margin-bottom: 20px;
 }
+ /* Termina formulario contacto */
+
+/* Index */
+
+/* Inicia sección de Carrusel de index */
+
+/* Asegurar que los botones de navegación no sean bloqueados */
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 10; /* Mayor que la capa del texto */
+}
+
+
+.carousel-item img {
+  height: 500px; /* Ajusta la altura */
+  object-fit: cover; /* Para mantener proporciones */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* Iconos con fondo oscuro */
+  border-radius: 50%;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5); /* Oscurece ligeramente el fondo */
+}
+
+.carousel-item img {
+  opacity: 0.8; /* Hace que las imágenes sean un poco transparentes */
+}
+
+.carousel-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.carousel-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-carousel {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #000000; /* Botón rojo */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-carousel:hover {
+  background-color: #000000; /* Botón rojo más oscuro */
+}
 
 
 
-/* termina formulario  */
+/*Terminan estilos de carrusel*/
+
+
+/*Inicia estilos de sección de Cards en index*/
+/* stilo estrellas rating*/
+.rating i {
+  font-size: 24px;
+  color: gold;
+  cursor: pointer;
+}
+
+
+/* Inicia sección Nuestros productos de index */
+
+
+.about {
+  padding-top: 90px;
+}
+
+.title {
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.about .about_box {
+  background: #191918;
+  padding: 55px 40px;
+  
+}
+.about .about_img {
+  padding: 55px 40px;
+  height: 100%;
+  background: red;
+  margin-top: 2rem;
+}
+.about .about_img figure {
+  margin: 0;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .about .about_img {
+      margin-top: 30px;
+      margin-right: 65px;
+  }
+}
+
+.about .about_box h3 {
+  font-size: 30px;
+  line-height: 28px;
+  color: #fff;
+  font-weight: 500;
+  padding: 0;
+}
+
+.about .about_box p {
+  color: #ffff;
+  font-size: 17px;
+  line-height: 28px;
+  padding: 30px 0px;
+  font-weight: 400;
+}
+
+.about .about_box a {
+  color: #fff;
+  font-size: 22px;
+  line-height: 29px;
+}
+
+.about .about_img figure {
+  margin: 0;
+  margin-right: 50px;
+  padding: 92px 0px 0px 60px;
+  margin-right: -64px;
+}
+
+/*Termina Index*/
