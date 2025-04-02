@@ -319,12 +319,15 @@ footer .list-group-item {
 }
  /* Termina formulario contacto */
 
+/* Index */
 
+/* Inicia sección de Carrusel de index */
 
-/* Carrusel de index  */
-
-
-
+/* Asegurar que los botones de navegación no sean bloqueados */
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 10; /* Mayor que la capa del texto */
+}
 
 
 .carousel-item img {
@@ -384,16 +387,6 @@ footer .list-group-item {
 }
 
 
-
-/* Index */
-
-/* Inicia sección de carrusel */
-
-/* Asegurar que los botones de navegación no sean bloqueados */
-.carousel-control-prev,
-.carousel-control-next {
-    z-index: 10; /* Mayor que la capa del texto */
-}
 
 /*Terminan estilos de carrusel*/
 
