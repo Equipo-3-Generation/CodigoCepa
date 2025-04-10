@@ -44,6 +44,14 @@
 
  /* AQUI TERMINA EL NABVBAR*/
 
+/* Perfil de usuario */
+.user-image{
+  font-size: 200px;
+  text-align: center;
+}
+
+/* Perfil de usuario */
+
  /* INICIA EL FOOTER
   footer {
   background-color: #CCCCCC !important; /* Rojo */

@@ -49,10 +49,18 @@
                 <!-- Íconos alineados a la derecha -->
                     <ul class="navbar-nav ms-auto d-flex align-items-center" id="iconos-derecha">
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="profile.html"><img src="pictures/icono-usuario.png" alt="Usuario"></a>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle align-items-center" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"><img src="pictures/icono-usuario.png" alt="Usuario"></a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="profile.html">Ver tu perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Ver tus compras</a></li>
+                                    <li><a class="dropdown-item" href="#">Salir</a></li>
+                                </ul>
+                            </div>
+                            
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-white" id="carrito" href="#"><img src="pictures/carrito.png" alt="Carrito"></a>
+                            <a class="nav-link active text-white pe-lg-5" id="carrito" href="#"><img src="pictures/carrito.png" alt="Carrito"></a>
                         </li>
                     </ul>
                 </div>
@@ -62,7 +70,99 @@
     </header>
 
     <main>
-
+        <div class="row">
+            <div class="col-3">
+                <p><hr>Salir</p>
+            </div>
+            <div class="col">
+                <p class="user-image">&#9822;</p>
+                <p>Para que su compra se realice de manera correcta, debe mantener la información de perfil completa y precisa en todo momento.</p>
+                <div class="input-group mb-4">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email-deshabilitado" value="anavillalov@gmail.com" disabled>
+                        <label for="email-deshabilitado">Email</label>
+                    </div>
+                    <button type="button" class="btn btn-outline-secondary" id="edit-email">&#9998;</button>
+                    
+                </div>
+                <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="alertModalLabel">Título</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="modal-body-text">Cuerpo del mensaje</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="confirm-btn">Enviar confirmación</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-4">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="nombres-profile" value="Ana Lucía">
+                                <label for="nombre-profile">Nombres</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="apellidos-profile" value="Villalobos Rivas">
+                                <label for="apellidos-profile">Apellidos</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="ciudad-profile" value="Tuxtla Gutiérrez">
+                                <label for="ciudad-profile">Ciudad</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="cp-profile" value="05000">
+                                <label for="cp-profile">Código postal</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="input-group">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="direccion-profile" value="Centenario 10">
+                            <label for="direccion-profile">Dirección</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="input-group">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="telefono-profile" value="+529612907850">
+                            <label for="telefono-profile">Teléfono</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-dark center" id="btn-actualizar-profile">Actualizar</button>
+                </div>
+                
+            </div>
+            <div class="col-3">
+            
+            </div>
+        </div>
+        
     </main>
 
     <footer class="footer">
@@ -105,7 +205,7 @@
     <div>Condiciones de uso | Aviso de privacidad </div>
     <div>© 2025, Hermedia, Inc. o sus afiliados</div>
 
-    <script src="script.js"></script>
+    <script src="profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
