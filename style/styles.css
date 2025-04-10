@@ -270,62 +270,177 @@ footer .list-group-item {
       width: 150px;
      }
 }
-/* FORMULARIO */
 
-.contenedor-marco {
-  border: 2px solid #CCCCCC; /* Borde gris */
-  padding: 40px;
-  box-shadow: 0 4px 8px rgba(61, 61, 61, 0.1);
-  background-color: transparent; /* Fondo transparente */
-  max-width: 1000px;
-  margin: 50px auto;
+/* Index */
+
+/* Inicia sección de Carrusel de index */
+
+/* Asegurar que los botones de navegación no sean bloqueados */
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 10; /* Mayor que la capa del texto */
 }
 
 
-#formulario-contacto {
-  border: 2px solid #CCCCCC;
-  background-color: transparent;
-  padding: 40px;
-  box-shadow: 0 4px 8px rgba(61, 61, 61, 0.1);
-  max-width: 1000px;
-  margin: 50px auto;
+.carousel-item img {
+  height: 500px; /* Ajusta la altura */
+  object-fit: cover; /* Para mantener proporciones */
 }
 
-
-.form-control {
-  background-color: #CCCCCC !important; 
-  border: none !important; 
-  padding: 12px;
-  border-radius: 10px; 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* Iconos con fondo oscuro */
+  border-radius: 50%;
 }
 
-#formulario-contacto button {
-  background-color: #F21116;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-#formulario-contacto button:hover {
-  background-color: #D10F12;
-  transform: scale(1.05);
-}
-
-#formulario-contacto .form-group {
-  margin-bottom: 20px;
-}
-
-.contact-container {
-  border: 1px solid #ccc;
-  padding: 20px;
-  background-color: #f9f9f9;
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin-bottom: 20px;
+  color: white;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5); /* Oscurece ligeramente el fondo */
+}
+
+.carousel-item img {
+  opacity: 0.8; /* Hace que las imágenes sean un poco transparentes */
+}
+
+.carousel-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.carousel-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-carousel {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #000000; /* Botón rojo */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-carousel:hover {
+  background-color: #000000; /* Botón rojo más oscuro */
 }
 
 
 
-/* termina formulario  */
+/*Terminan estilos de carrusel*/
+
+
+
+    /* empiezan cards*/
+    .card {
+      height: 100%; /* Todas las cards tendrán la misma altura */
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .card-img-top {
+      height: 300px; /* Tamaño fijo para las imágenes */
+      object-fit: cover; /* Ajusta la imagen sin deformarla */
+  }
+  
+  .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  
+  .card-title, .card-text {
+      min-height: 50px; /* Ajusta según el contenido más largo */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+  
+  /* stilo estrellas rating*/
+  .rating i {
+      font-size: 24px;
+      color: gold;
+      cursor: pointer;
+  }
+  
+
+
+/* Inicia sección Nuestros productos de index */
+
+
+.about {
+  padding-top: 90px;
+}
+
+.title {
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.about .about_box {
+  background: #191918;
+  padding: 55px 40px;
+  
+}
+.about .about_img {
+  padding: 55px 40px;
+  height: 100%;
+  background: red;
+  margin-top: 2rem;
+}
+.about .about_img figure {
+  margin: 0;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .about .about_img {
+      margin-top: 30px;
+      margin-right: 65px;
+  }
+}
+
+.about .about_box h3 {
+  font-size: 30px;
+  line-height: 28px;
+  color: #fff;
+  font-weight: 500;
+  padding: 0;
+}
+
+.about .about_box p {
+  color: #ffff;
+  font-size: 17px;
+  line-height: 28px;
+  padding: 30px 0px;
+  font-weight: 400;
+}
+
+.about .about_box a {
+  color: #fff;
+  font-size: 22px;
+  line-height: 29px;
+}
+
+.about .about_img figure {
+  margin: 0;
+  margin-right: 50px;
+  padding: 92px 0px 0px 60px;
+  margin-right: -64px;
+}
+
+/*Termina Index*/
