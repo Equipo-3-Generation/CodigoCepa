@@ -1,5 +1,5 @@
 
- /* AQUI INICIA EL NAV BAR*/
+/* AQUI INICIA EL NAV BAR*/
 #barra {
     background-color: #F21116 !important; /* Rojo */
 }
@@ -43,6 +43,14 @@
 }
 
  /* AQUI TERMINA EL NABVBAR*/
+
+/* Perfil de usuario */
+.user-image{
+  font-size: 200px;
+  text-align: center;
+}
+
+/* Perfil de usuario */
 
  /* INICIA EL FOOTER
   footer {

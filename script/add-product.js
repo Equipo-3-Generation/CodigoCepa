@@ -2,8 +2,8 @@
 // --> Función para vista previa de imágenes del formulario de creación de objetos
 
 document.addEventListener('DOMContentLoaded', function () {
-    const inputFile = document.getElementById('formFile');
-    const imagePreview = document.getElementById('imagePreview');
+    const inputFile = document.getElementById('carga-imagen');
+    const imagePreview = document.getElementById('vista-previa');
     
     inputFile.addEventListener('change', function(event) {
         const file = event.target.files[0];
