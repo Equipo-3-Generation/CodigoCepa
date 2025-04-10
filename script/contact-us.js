@@ -1,4 +1,3 @@
-//validación para el formulario de contacto <3
 document.addEventListener("DOMContentLoaded", function () {
     const formulario = document.getElementById("formulario-contacto");
 
@@ -35,5 +34,3 @@ document.addEventListener("DOMContentLoaded", function () {
         formulario.submit(); // Ahora sí envía el formulario
     });
 });
-
-//aquí termina el formulario de contacto <3

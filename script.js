@@ -3,8 +3,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Página cargada correctamente.");
 
-    //Cards
-
+    // Cards
     const ratings = document.querySelectorAll(".rating");
 
     ratings.forEach(rating => {
@@ -20,10 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 selectedRating = this.dataset.value;
                 highlightStars(stars, selectedRating, true);
             });
+        });
 
-            rating.addEventListener("mouseleave", function() {
-                highlightStars(stars, selectedRating);
-            });
+        rating.addEventListener("mouseleave", function() {
+            highlightStars(stars, selectedRating);
         });
     });
 
@@ -41,4 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
 });
+
