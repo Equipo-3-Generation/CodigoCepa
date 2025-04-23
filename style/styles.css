@@ -338,6 +338,14 @@ footer .list-group-item {
   background-color: #000000; /* Botón rojo más oscuro */
 }
 
+.carousel-overlay {
+  pointer-events: none;
+}
+
+.carousel-overlay * {
+  pointer-events: auto;
+}
+
 
 
 /*Terminan estilos de carrusel*/

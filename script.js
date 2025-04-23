@@ -41,4 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
-
+// carrusuel
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Página cargada correctamente.");
+});
