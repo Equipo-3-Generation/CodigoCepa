@@ -8,37 +8,22 @@
     <title>Lista de Productos</title>
 </head>
 
-<!-- Lista de productos -->
 <body>
 
     <div id="navbar-placeholder"></div>
 
-    <div class="container mt-4">
-        <h2 class="text-center">Listado de Productos</h2>
-        <table class="table table-bordered mt-3" id="tablaProductos">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Categoría</th>
-                    <th>Stock</th>
-                    <th>Precio (MXN)</th>
-                    <th>Peso (g)</th>
-                    <th>Dimensiones (cm)</th>
-                    <th>Materiales</th>
-                    <th>Personalización</th>
-                    <th>Imagen</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-        <button class="btn btn-primary" onclick="agregarProducto()">Agregar Producto</button>
-        <button class="btn btn-danger" onclick="eliminarTodos()">Eliminar Todos</button>
+    <div class="container my-5">
+        <h1 class="mb-4 text-center">Listado de Productos</h1>
+        <div id="productList" class="row row-cols-1 row-cols-md-2 g-4">
+            <!-- Aquí se insertan las tarjetas -->
+        </div>
     </div>
 
     <div id="footer-placeholder"></div>
 
-    <script src="listado-productos.js"></script>
+    <script src="/script/add-product.js"></script>
+
+    <script src="/script/listado-productos.js"></script>
 
     <script src="/general/navbar/navbar.js"></script>
 
@@ -47,4 +32,3 @@
 </body>
 
 </html>
-

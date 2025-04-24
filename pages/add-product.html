@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/CodigoCepa/style/styles.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Añadir productos</title>
 </head>
@@ -11,7 +11,7 @@
 
     <div id="navbar-placeholder"></div>
 
-    <!-- Formulario de productos -->
+    <!-- MAIN -->
     <main>
         <div class="container-fluid text-center my-5">
             <h1>Formulario de carga de productos</h1>
@@ -103,16 +103,21 @@
                                 ABS
                             </label>
                         </div>
-                        <!-- Personalizacion -->
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" id="materialPETG">
                             <label class="form-check-label" for="flexCheckDefault">
                                 PETG
                             </label>
                         </div>
-                        <!-- Boton onclick="agregarProducto()"-->
-                        <div class="text-end">
-                            <button type="button" class="btn btn-primary mb-3" id="btn-crear-producto" >Registrar</button>
+                    </div>
+                    <!-- Imagen del producto -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label fw-bold">Imagen del producto</label>
+                            <input class="form-control" type="file" id="formFile" accept="image/*">
+                        </div>
+                        <div id="previewContainer" class="mb-3">
+                            <img id="imagePreview" src="" alt="Vista previa" style="max-width: 200px; display: none;">
                         </div>
                     </form>
                     <!-- Personalizacion -->
@@ -122,7 +127,13 @@
                             El cliente puede pedir personalizacion.
                         </label>
                     </div>
-                    <div class="col-2"></div>
+                    <!-- Boton -->
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary mb-3" href="/pages/listado-productos.html">Registrar</button>
+                    </div>
+                </div>
+                <div class="col-2">
+                    
                 </div>
             </div>
             
