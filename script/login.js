@@ -25,9 +25,17 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
         setTimeout(() => {
             window.location.href = "/index.html";
         }, 2000);
-    } else {
-        mostrarModal("Correo o contraseña incorrectos");
-    }
+   } else {
+    mostrarModal("Inicio de sesión exitoso"); // Mostrar mensaje solo si es correcto
+
+        localStorage.setItem("currentUser", JSON.stringify(foundUser));
+
+        // Redirigir a inicio después de 2 segundos
+        setTimeout(() => {
+            window.location.href = "/index.html";
+        }, 2000);
+       // mostrarModal("Correo o contraseña incorrectos");
+    }//
 
     // Limpiar formulario después de enviar
     document.getElementById("loginForm").reset();
