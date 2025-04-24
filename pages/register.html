@@ -22,7 +22,7 @@
                     <img src="/pictures/h3rmedia.png" alt="Logo" width="200">
                     <h3 class="mt-4">Registrate</h3>
                 </div>
-                <form id="registerForm" action="#" method="POST">
+                <form id="registerForm" action="javascript:void(0)" novalidate>
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
                         <input type="name" class="form-control" id="name" name="name" required
@@ -41,12 +41,12 @@
                     <div class="mb-3">
                         <label for="password" class="form-label">Contraseña</label>
                         <input type="password" class="form-control" id="password" name="password" required
-                            placeholder="Ingresa tu contraseña" minlength="8" maxlength="10" >
+                            placeholder="Ingresa tu contraseña" minlength="8">
                     </div>
                     <div class="mb-3">
                         <label for="confirm-password" class="form-label">Confirmar contraseña</label>
                         <input type="password" class="form-control" id="confirm-password" name="confirm-password"
-                            required placeholder="Repite tu contraseña">
+                            required placeholder="Repite tu contraseña" minlength="8">
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="rememberMe" required>
@@ -56,6 +56,20 @@
                     <button type="submit" class="btn btn-dark w-100">Registrarse</button>
                 </form>
                 
+                <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header bg-primary text-white">
+                                <h5 class="modal-title" id="infoModalLabel">Información</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body" id="infoModalBody"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
     </main>
 

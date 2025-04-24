@@ -18,7 +18,7 @@
                 <img src="/pictures/h3rmedia.png" alt="Logo" width="100">
                 <h3 class="mt-2">Iniciar Sesión</h3>
             </div>
-            <form id="loginForm" action="#" method="POST">
+            <form id="loginForm">
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo Electrónico</label>
                     <input type="email" class="form-control" id="email" name="email" required
@@ -37,19 +37,31 @@
                 <button type="submit" class="btn btn-dark w-100">Ingresar</button>
             </form>
 
-            <div id="successMessage" class="text-success mt-3" style="display: none;">
-                Sus datos has sido almacenados correctamente 🎉
-            </div>
             <!-- Link para registro -->
             <div class="text-center mt-3">
-                <p>¿No tienes cuenta? <a href="#" class="text-decoration-none">Regístrate aquí</a></p>
+                <p>¿No tienes cuenta? <a href="/pages/register.html" class="text-decoration-none">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="infoModalLabel">Información</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="infoModalBody"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>
 
     <div id="footer-placeholder"></div>
 
-    <script src="login.js"></script>
+    <script src="/script/login.js"></script>
 
     <script src="/general/navbar/navbar.js"></script>
 

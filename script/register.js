@@ -1,3 +1,11 @@
+function mostrarModal(mensaje) {
+    const modalBody = document.getElementById("infoModalBody");
+    modalBody.textContent = mensaje;
+
+    const modal = new bootstrap.Modal(document.getElementById("infoModal"));
+    modal.show();
+}
+
 document.getElementById("registerForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
@@ -62,7 +70,8 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     savedUsers.push(user);
     localStorage.setItem("users", JSON.stringify(savedUsers));
 
-    alert("Registro exitoso");
+    mostrarModal("Registro exitoso 🎉");
+    document.getElementById("registerForm").reset();
 });
 
 
