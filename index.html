@@ -149,26 +149,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const contenedor = document.getElementById('productosInicio');
-            const productos = JSON.parse(localStorage.getItem('productos')) || [];
-        
-            const productosInicio = productos.filter(p => p.mostrarEnInicio === true);
-        
-            productosInicio.forEach(producto => {
-                const card = document.createElement('div');
-                card.innerHTML = `
-                    <h3>${producto.nombre}</h3>
-                    <img src="${producto.imagen}" style="width:100px;">
-                    <p>${producto.descripcion}</p>
-                    <p><strong>$${producto.precio} MXN</strong></p>
-                `;
-                contenedor.appendChild(card);
-            });
-        });
-        </script>
 </body>
 </html>
