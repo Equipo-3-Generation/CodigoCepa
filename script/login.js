@@ -35,4 +35,6 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
     // Limpiar formulario después de enviar
     document.getElementById("loginForm").reset();
+
+    window.location.href = "/CodigoCepa/index.html"; // Redirige a la página de perfil
 });

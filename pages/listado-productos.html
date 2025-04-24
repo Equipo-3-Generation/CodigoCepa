@@ -8,30 +8,29 @@
     <title>Lista de Productos</title>
 </head>
 
+<!-- Lista de productos -->
 <body>
 
     <div id="navbar-placeholder"></div>
 
     <div class="container mt-4">
         <h2 class="text-center">Listado de Productos</h2>
-        <table class="table table-bordered mt-3">
+        <table class="table table-bordered mt-3" id="tablaProductos">
             <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Descripción</th>
-                    <th>Precio</th>
                     <th>Categoría</th>
-                    <th>Material</th>
-                    <th>Imagen</th>
                     <th>Stock</th>
-                    <th>Dimensiones</th>
-                    <th>Peso</th>
-                    <th>Acciones</th>
+                    <th>Precio (MXN)</th>
+                    <th>Peso (g)</th>
+                    <th>Dimensiones (cm)</th>
+                    <th>Materiales</th>
+                    <th>Personalización</th>
+                    <th>Imagen</th>
                 </tr>
             </thead>
-            <tbody id="tabla-productos">
-                <!-- Productos generados dinámicamente -->
-            </tbody>
+            <tbody></tbody>
         </table>
         <button class="btn btn-primary" onclick="agregarProducto()">Agregar Producto</button>
         <button class="btn btn-danger" onclick="eliminarTodos()">Eliminar Todos</button>
