@@ -56,24 +56,20 @@ document.getElementById("registerForm").addEventListener("submit", function(even
 
     if (errores.length > 0) {
         // Mostrar errores en la pantalla
-        erroes.array.forEach(error => {
+        for (let i = 0; i < errores.length; i++) {
             let alerta = document.createElement("div");
             alerta.className = "alert alert-danger";
-            alerta.textContent = errores;
+            alerta.textContent = errores[i];
             errorDiv.appendChild(alerta);
-        });
-        return; 
+        }
+        return; // Si hay errores, detenemos la función
     }
 
-
-    let user = { name, telephone, email };
-    localStorage.setItem("usuario", JSON.stringify(user)); // Guarda usuario actual en localStorage
-
-    savedUsers.push({ email, password });
+    // Si no hay errores, guardamos los datos
+    let user = { name, telephone, email, password };
+    savedUsers.push(user);
     localStorage.setItem("users", JSON.stringify(savedUsers));
 
     mostrarModal("Registro exitoso 🎉");
     document.getElementById("registerForm").reset();
 });
-
-
