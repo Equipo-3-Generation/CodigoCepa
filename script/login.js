@@ -1,10 +1,9 @@
-// Función para mostrar mensaje de éxito
-function showSuccessMessage() {
-    const successDiv = document.getElementById("successMessage");
-    successDiv.style.display = "block"; // Muestra el mensaje
-    setTimeout(() => {
-        successDiv.style.display = "none"; // Oculta el mensaje después de 3 segundos
-    }, 3000);
+function mostrarModal(mensaje) {
+    const modalBody = document.getElementById("infoModalBody");
+    modalBody.textContent = mensaje;
+
+    const modal = new bootstrap.Modal(document.getElementById("infoModal"));
+    modal.show();
 }
 
 // Capturar el formulario
@@ -14,27 +13,25 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     // Obtener valores del formulario
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const foundUser = users.find(user => user.email === email && user.password === password);
 
-    // Crear un objeto con los datos del usuario
-    const newUser = {
-        email: email,
-        password: password
-    };
+    if (foundUser) {
+        mostrarModal("Inicio de sesión exitoso"); // Mostrar mensaje solo si es correcto
 
-    // Verificar si hay datos previos en LocalStorage
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+        localStorage.setItem("currentUser", JSON.stringify(foundUser));
 
-    // Agregar el nuevo usuario al arreglo existente
-    users.push(newUser);
-
-    // Almacenar el arreglo actualizado en LocalStorage
-    localStorage.setItem("users", JSON.stringify(users));
-
-    // Mostrar mensaje de confirmación
-    showSuccessMessage();
+        // Redirigir a inicio después de 2 segundos
+        setTimeout(() => {
+            window.location.href = "/index.html";
+        }, 2000);
+    } else {
+        mostrarModal("Correo o contraseña incorrectos");
+    }
 
     // Limpiar formulario después de enviar
     document.getElementById("loginForm").reset();
 
     window.location.href = "/CodigoCepa/index.html"; // Redirige a la página de perfil
 });
+

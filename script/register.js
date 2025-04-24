@@ -1,3 +1,11 @@
+function mostrarModal(mensaje) {
+    const modalBody = document.getElementById("infoModalBody");
+    modalBody.textContent = mensaje;
+
+    const modal = new bootstrap.Modal(document.getElementById("infoModal"));
+    modal.show();
+}
+
 document.getElementById("registerForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
@@ -64,9 +72,8 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     savedUsers.push({ email, password });
     localStorage.setItem("users", JSON.stringify(savedUsers));
 
-    alert("Registro exitoso");
-
-    window.location.href = "/CodigoCepa/pages/login.html"; // Redirige a la página de perfil
+    mostrarModal("Registro exitoso 🎉");
+    document.getElementById("registerForm").reset();
 });
 
 
