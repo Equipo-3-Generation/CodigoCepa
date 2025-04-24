@@ -48,21 +48,25 @@ document.getElementById("registerForm").addEventListener("submit", function(even
 
     if (errores.length > 0) {
         // Mostrar errores en la pantalla
-        for (let i = 0; i < errores.length; i++) {
+        erroes.array.forEach(error => {
             let alerta = document.createElement("div");
             alerta.className = "alert alert-danger";
-            alerta.textContent = errores[i];
+            alerta.textContent = errores;
             errorDiv.appendChild(alerta);
-        }
-        return; // Si hay errores, detenemos la función
+        });
+        return; 
     }
 
-    // Si no hay errores, guardamos los datos
-    let user = { name, telephone, email, password };
-    savedUsers.push(user);
+
+    let user = { name, telephone, email };
+    localStorage.setItem("usuario", JSON.stringify(user)); // Guarda usuario actual en localStorage
+
+    savedUsers.push({ email, password });
     localStorage.setItem("users", JSON.stringify(savedUsers));
 
     alert("Registro exitoso");
+
+    window.location.href = "/CodigoCepa/pages/login.html"; // Redirige a la página de perfil
 });
 
 
