@@ -66,9 +66,36 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     }
 
     // Si no hay errores, guardamos los datos
-    let user = { name, telephone, email, password };
-    savedUsers.push(user);
-    localStorage.setItem("users", JSON.stringify(savedUsers));
+    //let user = { name, telephone, email, password };
+    //savedUsers.push(user);
+    //localStorage.setItem("users", JSON.stringify(savedUsers));
+
+    // Creación del objeto
+    const user = {
+        name: name,
+        telephoneNumber: telephone,
+        email: email,
+        password: password
+    }
+
+    const url = `http://localhost:8080/api/users`;
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log('Guardado', data)
+        })
+        .catch(error => {
+            console.error(error);
+        })
 
     mostrarModal("Registro exitoso 🎉");
     document.getElementById("registerForm").reset();

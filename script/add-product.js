@@ -1,58 +1,46 @@
-// --> Función para agregar un nuevo producto al localStorage y a la tabla de productos
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('productForm');
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
+        const nombre = document.getElementById('nombreProducto').value;
+        const descripcion = document.getElementById('descripcionProducto').value;
+        const precio = document.getElementById('precioProducto').value;
+        const stock = document.getElementById('stockProducto').value;
+        const dimensiones = `${document.getElementById('largoProducto').value} X ${document.getElementById('anchoProducto').value} X ${document.getElementById('altoProducto').value}`;
+
         const producto = {
-            nombre: document.getElementById('nombreProducto').value,
-            descripcion: document.getElementById('descripcionProducto').value,
-            categoria: document.getElementById('categoriaProducto').value,
-            stock: document.getElementById('stockProducto').value,
-            precio: document.getElementById('precioProducto').value,
-            peso: document.getElementById('pesoProducto').value,
-            dimensiones: {
-                largo: document.getElementById('largoProducto').value,
-                ancho: document.getElementById('anchoProducto').value,
-                alto: document.getElementById('altoProducto').value
-            },
-            materiales: {
-                PLA: document.getElementById('materialPLA').checked,
-                ABS: document.getElementById('materialABS').checked,
-                PETG: document.getElementById('materialPETG').checked
-            },
-            personalizacion: document.getElementById('personalizacion').checked,
-            imagen: document.getElementById('formFile').files[0]?.name || ''
-        };
-
-        // Obtener los productos anteriores y agregar el nuevo
-        let productos = JSON.parse(localStorage.getItem('productos')) || [];
-        productos.push(producto);
-        localStorage.setItem('productos', JSON.stringify(productos));
-
-        alert('Producto registrado exitosamente.');
-        form.reset();
-    });
-});
-
-// --> Función para vista previa de imágenes del formulario de creación de objetos
-
-document.addEventListener('DOMContentLoaded', function () {
-    const inputFile = document.getElementById('formFile');
-    const imagePreview = document.getElementById('imagePreview');
-    
-    inputFile.addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            imagePreview.style.display = 'block'; // Muestra la imagen
-            imagePreview.src = e.target.result; // Asigna la URL generada al src de la imagen
-        };
-
-        if (file) {
-            reader.readAsDataURL(file); // Convierte el archivo a una URL y la asigna a la imagen
+            name: nombre,
+            description: descripcion,
+            price: parseFloat(precio),
+            stock: parseInt(stock),
+            dimensions: dimensiones
         }
+
+        const url = `http://localhost:8080/api/products`;
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(producto)
+        })
+        .then(response => {
+            if (!response.ok) {
+                return Promise.reject('Failed to create product');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Producto guardado:', data);
+            alert('Producto registrado exitosamente.');
+            form.reset();
+        })
+        .catch(error => {
+            console.error('Error al registrar el producto:', error);
+            alert('Error al registrar el producto. Intente nuevamente.');
+        });
     });
 });
