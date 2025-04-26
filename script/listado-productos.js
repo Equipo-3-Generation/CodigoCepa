@@ -9,19 +9,18 @@ document.addEventListener('DOMContentLoaded', function () {
         card.className = 'col';
         card.innerHTML = `
             <div class="card h-100">
-                <img src="${producto.imagen ? producto.imagen : 'https://via.placeholder.com/150'}" class="card-img-top" alt="${producto.nombre}">
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
                 <div class="card-body">
                     <h5 class="card-title">${producto.nombre}</h5>
                     <p class="card-text">${producto.descripcion}</p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Precio: ${producto.precio} MXN</li>
-                        <li class="list-group-item">Stock: ${producto.stock} piezas</li>
-                        <li class="list-group-item">Peso: ${producto.peso} g</li>
+                        <li class="list-group-item"><strong>Precio:</strong> $${producto.precio}</li>
+                        <li class="list-group-item"><strong>Stock:</strong> ${producto.stock} piezas</li>
+                        <li class="list-group-item"><strong>Peso:</strong> ${producto.peso} g</li>
+                        <li class="list-group-item"><strong>Dimensiones:</strong> ${producto.dimensiones}</li>
+                        <li class="list-group-item"><strong>Material:</strong> ${producto.materiales.join(', ')}</li>
+                        <li class="list-group-item"><strong>Personalización:</strong> ${producto.personalizacion ? "Sí" : "No"}</li>
                     </ul>
-                    <div class="mt-3 justify-content-between">
-                        <button class="btn btn-success btn-sm" onclick="enviarProducto(${index}, 'inicio')">Enviar a inicio</button>
-                        <button class="btn btn-primary btn-sm" onclick="enviarProducto(${index}, 'catalogo')">Enviar a productos</button>
-                    </div>
                 </div>
             </div>
         `;
@@ -29,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+/*
 function enviarProducto(index, destino) {
     const productos = JSON.parse(localStorage.getItem('productos')) || [];
     const producto = productos[index];
@@ -45,3 +45,4 @@ function enviarProducto(index, destino) {
     localStorage.setItem(clave, JSON.stringify(lista));
     alert(`Producto enviado a ${destino === 'inicio' ? 'inicio' : 'catálogo'} correctamente.`);
 }
+*/

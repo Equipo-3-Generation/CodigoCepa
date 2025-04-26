@@ -4,43 +4,41 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        const nombre = document.getElementById('nombreProducto').value;
-        const descripcion = document.getElementById('descripcionProducto').value;
-        const precio = document.getElementById('precioProducto').value;
-        const stock = document.getElementById('stockProducto').value;
-        const dimensiones = `${document.getElementById('largoProducto').value} X ${document.getElementById('anchoProducto').value} X ${document.getElementById('altoProducto').value}`;
+        // Capturar datos del formulario
+        const nombre = document.getElementById('nombreProducto').value.trim();
+        const descripcion = document.getElementById('descripcionProducto').value.trim();
+        const precio = parseFloat(document.getElementById('precioProducto').value);
+        const stock = parseInt(document.getElementById('stockProducto').value);
+        const dimensiones = `${document.getElementById('largoProducto').value}x${document.getElementById('anchoProducto').value}x${document.getElementById('altoProducto').value} cm`;
+        const peso = parseFloat(document.getElementById('pesoProducto').value);
+        const imagen = document.getElementById('formFile').value; // Aquí debes usar <input type="text"> para que el usuario pegue la URL
+        const personalizacion = document.getElementById('personalizacion').checked;
 
+        // Material
+        const materiales = [];
+        if (document.getElementById('materialPLA').checked) materiales.push('PLA');
+        if (document.getElementById('materialABS').checked) materiales.push('ABS');
+        if (document.getElementById('materialPETG').checked) materiales.push('PETG');
+
+        // Crear objeto producto
         const producto = {
-            name: nombre,
-            description: descripcion,
-            price: parseFloat(precio),
-            stock: parseInt(stock),
-            dimensions: dimensiones
-        }
+            nombre,
+            descripcion,
+            precio,
+            stock,
+            dimensiones,
+            peso,
+            imagen,
+            materiales,
+            personalizacion
+        };
 
-        const url = `http://localhost:8080/api/products`;
+        // Guardar en localStorage
+        const productos = JSON.parse(localStorage.getItem('productos')) || [];
+        productos.push(producto);
+        localStorage.setItem('productos', JSON.stringify(productos));
 
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(producto)
-        })
-        .then(response => {
-            if (!response.ok) {
-                return Promise.reject('Failed to create product');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Producto guardado:', data);
-            alert('Producto registrado exitosamente.');
-            form.reset();
-        })
-        .catch(error => {
-            console.error('Error al registrar el producto:', error);
-            alert('Error al registrar el producto. Intente nuevamente.');
-        });
+        alert('Producto guardado exitosamente.');
+        form.reset();
     });
 });
