@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (document.getElementById('materialABS').checked) materiales.push('ABS');
         if (document.getElementById('materialPETG').checked) materiales.push('PETG');
 
+        // Validación de entradas
+        if (!nombre || !descripcion || isNaN(precio) || isNaN(stock) || isNaN(peso) || !imagen) {
+            alert('Por favor, completa todos los campos.');
+            return;
+        }
+
         // Crear objeto producto
         const producto = {
             nombre,
@@ -38,7 +44,29 @@ document.addEventListener('DOMContentLoaded', function () {
         productos.push(producto);
         localStorage.setItem('productos', JSON.stringify(productos));
 
-        alert('Producto guardado exitosamente.');
+        // alert('Producto guardado exitosamente.');
+        const toast = new bootstrap.Toast(document.getElementById('liveToast'));
+        toast.show();
+
+        // Limpiar el formulario
         form.reset();
+
+        // Limpiar la vista previa de la imagen
+        imagePreview.src = "";
+        imagePreview.style.display = 'none';
+    });
+
+    // Mostrar vista previa de imagen al escribir URL
+    const inputImagen = document.getElementById('formFile');
+    const imagePreview = document.getElementById('imagePreview');
+
+    inputImagen.addEventListener('input', function() {
+        const url = inputImagen.value.trim();
+        if (url) {
+            imagePreview.src = url;
+            imagePreview.style.display = 'block';
+        } else {
+            imagePreview.style.display = 'none';
+        }
     });
 });
