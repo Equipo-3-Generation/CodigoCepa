@@ -40,17 +40,38 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // Guardar usuario en localStorage
-        const nuevoUsuario = { name, tel, email, password };
-        usuarios.push(nuevoUsuario);
-        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        // Crear objeto
+        const nuevoUsuario = { 
+            name, 
+            telephoneNumber: tel, 
+            email, 
+            password 
+        };
 
-        mostrarModal('Registro exitoso 🎉');
-        registerForm.reset();
-
-        setTimeout(() => {
-            window.location.href = '/pages/index.html';
-        }, 2000);
+        fetch('http://localhost:8080/api/v2/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(nuevoUsuario)
+        })
+        .then(response => {
+            if(!response.ok) {
+                throw new Error('No se pudo registrar el usuario.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            mostrarModal('Registro exitoso 🎉');
+            registerForm.reset();
+            setTimeout(() => {
+                window.location.href = '/index.html';
+            }, 2000);
+        })
+        .catch(error => {
+            console.error('Error', error);
+            mostrarModal('Error al registrar. Intenta de nuevo.')
+        });
     });
 
     // Ver contraseña

@@ -8,21 +8,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
-        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-        const usuarioEncontrado = usuarios.find(user => user.email === email && user.password === password);
-
-        if (!usuarioEncontrado) {
-            mostrarModal('Correo o contraseña incorrectos.');
-            return;
+        if(!email || !password){
+            mostrarModal('Por favor completa todos los campos')
         }
 
-        localStorage.setItem('usuarioActual', JSON.stringify(usuarioEncontrado));
-        mostrarModal('Inicio de sesión exitoso 🎉');
-
-        setTimeout(() => {
-            window.location.href = '/index.html';
-        }, 2000);
+        fetch(`http://localhost:8080/api/v2/users/email/${email}`)
+            .then(response => {
+                if(!response.ok){
+                    throw new Error('Correo no encontrado');
+                }
+                return response.json();
+            })
+            .then(user => {
+                if(user.password === password) {
+                    localStorage.setItem('usuarioActual', JSON.stringify(user));
+                    mostrarModal('Inicio de sesión exitoso 🎉');
+                    setTimeout(() => {
+                        window.location.href = '/index.html';
+                    }, 2000);
+                } else {
+                    mostrarModal('Constraseña incorrecta.');
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                mostrarModal('Usuario no encontrado o error en la conexión.')
+            });
     });
 
     // Ver contraseña
