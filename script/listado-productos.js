@@ -22,11 +22,32 @@ document.addEventListener('DOMContentLoaded', function () {
                         <li class="list-group-item"><strong>Personalización:</strong> ${producto.personalizacion ? "Sí" : "No"}</li>
                     </ul>
                 </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-success m-1" onclick="enviarAInicio(${index})">Enviar a Inicio</button>
+                    <button class="btn btn-primary m-1" onclick="enviarAProductos(${index})">Enviar a Productos</button>
+                </div>
             </div>
         `;
         contenedor.appendChild(card);
     });
 });
+
+// Funciones para enviar
+function enviarAInicio(index) {
+    const productos = JSON.parse(localStorage.getItem('productos')) || [];
+    const inicioProductos = JSON.parse(localStorage.getItem('inicioProductos')) || [];
+    inicioProductos.push(productos[index]);
+    localStorage.setItem('inicioProductos', JSON.stringify(inicioProductos));
+    alert('Producto enviado a Inicio.');
+}
+
+function enviarAProductos(index) {
+    const productos = JSON.parse(localStorage.getItem('productos')) || [];
+    const paginaProductos = JSON.parse(localStorage.getItem('paginaProductos')) || [];
+    paginaProductos.push(productos[index]);
+    localStorage.setItem('paginaProductos', JSON.stringify(paginaProductos));
+    alert('Producto enviado a Página de Productos.');
+}
 
 /*
 function enviarProducto(index, destino) {
