@@ -6,6 +6,21 @@ document.addEventListener('DOMContentLoaded', function () {
   function actualizarCarrito() {
       carritoContainer.innerHTML = '';
       let total = 0;
+      
+      if (carrito.length === 0) {
+        carritoContainer.innerHTML = `
+            <tr>
+                <td colspan="5" class="text-center">
+                    <div class="p-5">
+                        <h4>🛒 ¡Tu carrito está vacío!</h4>
+                        <p>Agrega productos para continuar con tu compra.</p>
+                        <a href="/pages/products.html" class="btn btn-primary mt-3">Explorar productos</a>
+                    </div>
+                </td>
+            </tr>
+        `;
+        totalCarrito.textContent = "$0.00"; // Total en cero
+      }
 
       carrito.forEach((producto, index) => {
           if (!producto || producto.precio == null) return;
