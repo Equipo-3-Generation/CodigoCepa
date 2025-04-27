@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Capturar datos del formulario
         const nombre = document.getElementById('nombreProducto').value.trim();
         const descripcion = document.getElementById('descripcionProducto').value.trim();
+        const categoriaSelect = document.getElementById('categoriaProducto');
+        const categoria = categoriaSelect.options[categoriaSelect.selectedIndex].text;
         const precio = parseFloat(document.getElementById('precioProducto').value);
         const stock = parseInt(document.getElementById('stockProducto').value);
         const dimensiones = `${document.getElementById('largoProducto').value}x${document.getElementById('anchoProducto').value}x${document.getElementById('altoProducto').value} cm`;
@@ -30,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const producto = {
             nombre,
             descripcion,
+            categoria,
             precio,
             stock,
             dimensiones,

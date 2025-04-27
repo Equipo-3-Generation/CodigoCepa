@@ -48,22 +48,3 @@ function enviarAProductos(index) {
     localStorage.setItem('paginaProductos', JSON.stringify(paginaProductos));
     alert('Producto enviado a Página de Productos.');
 }
-
-/*
-function enviarProducto(index, destino) {
-    const productos = JSON.parse(localStorage.getItem('productos')) || [];
-    const producto = productos[index];
-    
-    let clave;
-    if (destino === 'inicio') {
-        clave = 'productosEnInicio';
-    } else if (destino === 'catalogo') {
-        clave = 'productosEnCatalogo';
-    }
-
-    const lista = JSON.parse(localStorage.getItem(clave)) || [];
-    lista.push(producto);
-    localStorage.setItem(clave, JSON.stringify(lista));
-    alert(`Producto enviado a ${destino === 'inicio' ? 'inicio' : 'catálogo'} correctamente.`);
-}
-*/
