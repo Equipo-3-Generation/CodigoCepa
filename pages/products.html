@@ -18,11 +18,15 @@
             <div class="row my-3">
                 <h3>¡Accede al catálogo de todos nuestros productos!</h3>
             </div>
-            <div class="row">
+
+            <!-- Productos estáticos -->
+            <div class="row row-cols-1 row-cols-md-5 g-4">
+                
                 <div class="col">
-                    <div class="card rounded-0" style="width: 18 rem;">
-                        <div class="imagen-box"><img src="/pictures/barquito.png" class="card-img-top imagen" alt="Mini barco decorativo"></div>
-                        
+                    <div class="card rounded-0 h-100 text-center">
+                        <div class="imagen-box">
+                            <img src="/pictures/barquito.png" class="card-img-top imagen" alt="Mini barco decorativo">
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title text-primary-emphasis fw-bold">MINI BARCO DECORATIVO</h5>
                             <p class="card-text text-danger fw-bold">$150</p>
@@ -31,10 +35,12 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col">
-                    <div class="card rounded-0" style="width: 18 rem;">
-                        <div class="imagen-box"><img src="/pictures/casa.png" class="card-img-top imagen" alt="Casa negra mini"></div>
-                        
+                    <div class="card rounded-0 h-100 text-center">
+                        <div class="imagen-box">
+                            <img src="/pictures/casa.png" class="card-img-top imagen" alt="Casa negra mini">
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title text-primary-emphasis fw-bold">CASA NEGRA MINI</h5>
                             <p class="card-text text-danger fw-bold">$85</p>
@@ -43,10 +49,12 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col">
-                    <div class="card rounded-0" style="width: 18 rem;">
-                        <div class="imagen-box"><img src="/pictures/pan.png" class="card-img-top imagen" alt="Modelo de pan"></div>
-                        
+                    <div class="card rounded-0 h-100 text-center">
+                        <div class="imagen-box">
+                            <img src="/pictures/pan.png" class="card-img-top imagen" alt="Modelo de pan">
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title text-primary-emphasis fw-bold">MODELO DE PAN</h5>
                             <p class="card-text text-danger fw-bold">$105</p>
@@ -55,9 +63,12 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col">
-                    <div class="card rounded-0" style="width: 18 rem;">
-                        <div class="imagen-box"><img src="/pictures/maceta-animalitos.jpg" class="card-img-top rounded-0" alt="Macetas de animalitos"></div>
+                    <div class="card rounded-0 h-100 text-center">
+                        <div class="imagen-box">
+                            <img src="/pictures/maceta-animalitos.jpg" class="card-img-top rounded-0" alt="Macetas de animalitos">
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title text-primary-emphasis fw-bold">MACETAS DE ANIMALITOS</h5>
                             <p class="card-text text-danger fw-bold">$85</p>
@@ -66,9 +77,10 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col">
-                    <div class="card rounded-0" style="width: 18 rem;">
-                        <div class="image-box">
+                    <div class="card rounded-0 h-100 text-center">
+                        <div class="imagen-box">
                             <img src="/pictures/soporte-cerveza.png" class="card-img-top" alt="Soporte universal para latas de cerveza">
                         </div>
                         <div class="card-body">
@@ -80,11 +92,14 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div id="productosContainer" class="row row-cols-1 row-cols-md-5 g-4"></div>
+
+            <!-- Productos dinámicos -->
+            <div class="row row-cols-1 row-cols-md-5 g-4 mt-3" id="productosContainer">
+                <!-- Aquí se insertan las tarjetas nuevas -->
             </div>
         </div>
     </main>
+
 
     <div id="footer-placeholder"></div>
 

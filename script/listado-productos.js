@@ -36,6 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
 function enviarAInicio(index) {
     const productos = JSON.parse(localStorage.getItem('productos')) || [];
     const inicioProductos = JSON.parse(localStorage.getItem('inicioProductos')) || [];
+
+    if (inicioProductos.length >= 6) {
+        alert('El límite de 6 productos destacados en la portada se ha alcanzado.');
+        return;
+    }
+
     inicioProductos.push(productos[index]);
     localStorage.setItem('inicioProductos', JSON.stringify(inicioProductos));
     alert('Producto enviado a Inicio.');

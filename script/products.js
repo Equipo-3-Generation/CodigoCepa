@@ -7,15 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const card = document.createElement('div');
         card.className = 'col';
         card.innerHTML = `
-            <div class="card rounded-0 my-3" style="width: 18rem;">
+            <div class="card rounded-0 h-100 text-center">
                 <div class="imagen-box">
                     <img src="${producto.imagen}" class="card-img-top imagen" alt="${producto.nombre}">
                 </div>
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title text-primary-emphasis fw-bold">${producto.nombre.toUpperCase()}</h5>
                     <p class="card-text text-danger fw-bold">$${producto.precio}</p>
                     <p class="text-muted small">Categoría: ${producto.categoria}</p>
-                    <button class="btn btn-dark rounded-0" onclick="agregarAlCarrito(${index})">Añadir al carrito</button>
+                    <button class="btn btn-dark rounded-0 mt-auto" onclick="agregarAlCarrito(${index})">Añadir al carrito</button>
                 </div>
             </div>
         `;
