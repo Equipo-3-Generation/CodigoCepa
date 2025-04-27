@@ -1,102 +1,77 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const registerForm = document.getElementById('registerForm');
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+
+    registerForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const tel = document.getElementById('tel').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        const terminosAceptados = document.getElementById('terminos').checked;
+
+        const errores = [];
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+        // Validaciones
+        if (!name) errores.push('El nombre es obligatorio.');
+        if (!tel.match(/^\d{10}$/)) errores.push('El número de teléfono debe tener 10 dígitos numéricos.');
+        if (!email.includes('@') || !email.includes('.')) errores.push('Correo electrónico no válido.');
+        if (password.length < 8) errores.push('La contraseña debe tener mínimo 8 caracteres.');
+        if (password !== confirmPassword) errores.push('Las contraseñas no coinciden.');
+        if (usuarios.find(user => user.email === email)) errores.push('Este correo ya está registrado.');
+        if (!terminosAceptados) errores.push('Debes aceptar los Términos y Condiciones.');
+
+        const errorDiv = document.getElementById('errores');
+        errorDiv.innerHTML = '';
+
+        if (errores.length > 0) {
+            errores.forEach(err => {
+                const alerta = document.createElement('div');
+                alerta.className = 'alert alert-danger';
+                alerta.textContent = err;
+                errorDiv.appendChild(alerta);
+            });
+            return;
+        }
+
+        // Guardar usuario en localStorage
+        const nuevoUsuario = { name, tel, email, password };
+        usuarios.push(nuevoUsuario);
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+        mostrarModal('Registro exitoso 🎉');
+        registerForm.reset();
+
+        setTimeout(() => {
+            window.location.href = '/pages/index.html';
+        }, 2000);
+    });
+
+    // Ver contraseña
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.innerHTML = type === 'password' ? '<i class="bi bi-eye-fill"></i>' : '<i class="bi bi-eye-slash-fill"></i>';
+    });
+
+    // Ver contraseña confirmacion
+    toggleConfirmPassword.addEventListener('click', function () {
+        const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPasswordInput.setAttribute('type', type);
+        this.innerHTML = type === 'password' ? '<i class="bi bi-eye-fill"></i>' : '<i class="bi bi-eye-slash-fill"></i>';
+    });
+});
+
 function mostrarModal(mensaje) {
-    const modalBody = document.getElementById("infoModalBody");
+    const modalBody = document.getElementById('infoModalBody');
     modalBody.textContent = mensaje;
 
-    const modal = new bootstrap.Modal(document.getElementById("infoModal"));
+    const modal = new bootstrap.Modal(document.getElementById('infoModal'));
     modal.show();
 }
-
-document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe automáticamente
-
-    // Obtener los valores del formulario
-    let name = document.getElementById("name").value.trim();
-    let telephone = document.getElementById("tel").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirm-password").value;
-
-    // Arreglo para guardar errores
-    let errores = [];
-
-    // Obtener usuarios guardados en localStorage
-    let savedUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Validaciones básicas
-    if (name === "") {
-        errores.push("El nombre es obligatorio.");
-    }
-
-    // Validación de número de teléfono (solo números y 10 dígitos)
-    if (telephone.length !== 10 || isNaN(telephone)) {
-        errores.push("El teléfono debe tener 10 números.");
-    } 
-
-    if (!email.includes("@") || !email.includes(".")) {
-        errores.push("Correo electrónico no válido.");
-    }
-
-    if (password.length < 8) {
-        errores.push("La contraseña debe tener mínimo 8 caracteres.");
-    }
-
-    if (password !== confirmPassword) {
-        errores.push("Las contraseñas no coinciden.");
-    }
-
-    // Verificar si el usuario ya está registrado
-    let usuarioExistente = savedUsers.some(user => user.email === email);
-    if (usuarioExistente) {
-        errores.push("Este correo ya está registrado. Intenta iniciar sesión.");
-    }
-
-    // Mostrar errores o guardar el usuario
-    let errorDiv = document.getElementById("errores");
-    errorDiv.innerHTML = ""; // Limpiar errores anteriores
-
-    if (errores.length > 0) {
-        // Mostrar errores en la pantalla
-        for (let i = 0; i < errores.length; i++) {
-            let alerta = document.createElement("div");
-            alerta.className = "alert alert-danger";
-            alerta.textContent = errores[i];
-            errorDiv.appendChild(alerta);
-        }
-        return; // Si hay errores, detenemos la función
-    }
-
-    // Si no hay errores, guardamos los datos
-    //let user = { name, telephone, email, password };
-    //savedUsers.push(user);
-    //localStorage.setItem("users", JSON.stringify(savedUsers));
-
-    // Creación del objeto
-    const user = {
-        name: name,
-        telephoneNumber: telephone,
-        email: email,
-        password: password
-    }
-
-    const url = `http://localhost:8080/api/users`;
-
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    })
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            console.log('Guardado', data)
-        })
-        .catch(error => {
-            console.error(error);
-        })
-
-    mostrarModal("Registro exitoso 🎉");
-    document.getElementById("registerForm").reset();
-});
