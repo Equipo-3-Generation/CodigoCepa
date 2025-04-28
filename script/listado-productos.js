@@ -9,19 +9,22 @@ document.addEventListener('DOMContentLoaded', function () {
         card.className = 'col';
         card.innerHTML = `
             <div class="card h-100">
-                <img src="${producto.imagen ? producto.imagen : 'https://via.placeholder.com/150'}" class="card-img-top" alt="${producto.nombre}">
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
                 <div class="card-body">
                     <h5 class="card-title">${producto.nombre}</h5>
                     <p class="card-text">${producto.descripcion}</p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Precio: ${producto.precio} MXN</li>
-                        <li class="list-group-item">Stock: ${producto.stock} piezas</li>
-                        <li class="list-group-item">Peso: ${producto.peso} g</li>
+                        <li class="list-group-item"><strong>Precio:</strong> $${producto.precio}</li>
+                        <li class="list-group-item"><strong>Stock:</strong> ${producto.stock} piezas</li>
+                        <li class="list-group-item"><strong>Peso:</strong> ${producto.peso} g</li>
+                        <li class="list-group-item"><strong>Dimensiones:</strong> ${producto.dimensiones}</li>
+                        <li class="list-group-item"><strong>Material:</strong> ${producto.materiales.join(', ')}</li>
+                        <li class="list-group-item"><strong>Personalización:</strong> ${producto.personalizacion ? "Sí" : "No"}</li>
                     </ul>
-                    <div class="mt-3 justify-content-between">
-                        <button class="btn btn-success btn-sm" onclick="enviarProducto(${index}, 'inicio')">Enviar a inicio</button>
-                        <button class="btn btn-primary btn-sm" onclick="enviarProducto(${index}, 'catalogo')">Enviar a productos</button>
-                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-success m-1" onclick="enviarAInicio(${index})">Enviar a Inicio</button>
+                    <button class="btn btn-primary m-1" onclick="enviarAProductos(${index})">Enviar a Productos</button>
                 </div>
             </div>
         `;
@@ -29,19 +32,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function enviarProducto(index, destino) {
+// Funciones para enviar
+function enviarAInicio(index) {
     const productos = JSON.parse(localStorage.getItem('productos')) || [];
-    const producto = productos[index];
-    
-    let clave;
-    if (destino === 'inicio') {
-        clave = 'productosEnInicio';
-    } else if (destino === 'catalogo') {
-        clave = 'productosEnCatalogo';
+    const inicioProductos = JSON.parse(localStorage.getItem('inicioProductos')) || [];
+
+    if (inicioProductos.length >= 6) {
+        alert('El límite de 6 productos destacados en la portada se ha alcanzado.');
+        return;
     }
 
-    const lista = JSON.parse(localStorage.getItem(clave)) || [];
-    lista.push(producto);
-    localStorage.setItem(clave, JSON.stringify(lista));
-    alert(`Producto enviado a ${destino === 'inicio' ? 'inicio' : 'catálogo'} correctamente.`);
+    inicioProductos.push(productos[index]);
+    localStorage.setItem('inicioProductos', JSON.stringify(inicioProductos));
+    alert('Producto enviado a Inicio.');
+}
+
+function enviarAProductos(index) {
+    const productos = JSON.parse(localStorage.getItem('productos')) || [];
+    const paginaProductos = JSON.parse(localStorage.getItem('paginaProductos')) || [];
+    paginaProductos.push(productos[index]);
+    localStorage.setItem('paginaProductos', JSON.stringify(paginaProductos));
+    alert('Producto enviado a Página de Productos.');
 }
