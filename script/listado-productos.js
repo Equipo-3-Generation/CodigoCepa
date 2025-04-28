@@ -2,34 +2,41 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     const contenedor = document.getElementById('productList');
-    const productos = JSON.parse(localStorage.getItem('productos')) || [];
 
-    productos.forEach((producto, index) => {
-        const card = document.createElement('div');
-        card.className = 'col';
-        card.innerHTML = `
-            <div class="card h-100">
-                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-                <div class="card-body">
-                    <h5 class="card-title">${producto.nombre}</h5>
-                    <p class="card-text">${producto.descripcion}</p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><strong>Precio:</strong> $${producto.precio}</li>
-                        <li class="list-group-item"><strong>Stock:</strong> ${producto.stock} piezas</li>
-                        <li class="list-group-item"><strong>Peso:</strong> ${producto.peso} g</li>
-                        <li class="list-group-item"><strong>Dimensiones:</strong> ${producto.dimensiones}</li>
-                        <li class="list-group-item"><strong>Material:</strong> ${producto.materiales.join(', ')}</li>
-                        <li class="list-group-item"><strong>Personalización:</strong> ${producto.personalizacion ? "Sí" : "No"}</li>
-                    </ul>
-                </div>
-                <div class="card-footer text-center">
-                    <button class="btn btn-success m-1" onclick="enviarAInicio(${index})">Enviar a Inicio</button>
-                    <button class="btn btn-primary m-1" onclick="enviarAProductos(${index})">Enviar a Productos</button>
-                </div>
-            </div>
-        `;
-        contenedor.appendChild(card);
-    });
+    fetch(`http://localhost:8080/api/v2/products`)
+        .then(response => response.json())
+        .then(productos => {
+            productos.forEach(producto => {
+                const card = document.createElement('div');
+                card.className = 'col';
+
+                card.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                        <div class="card-body">
+                            <h5 class="card-title">${producto.nombre}</h5>
+                            <p class="card-text">${producto.descripcion}</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Precio:</strong> $${producto.precio}</li>
+                                <li class="list-group-item"><strong>Stock:</strong> ${producto.stock} piezas</li>
+                                <li class="list-group-item"><strong>Peso:</strong> ${producto.peso} g</li>
+                                <li class="list-group-item"><strong>Dimensiones:</strong> ${producto.dimensiones}</li>
+                                <li class="list-group-item"><strong>Material:</strong> ${producto.materiales.join(', ')}</li>
+                                <li class="list-group-item"><strong>Personalización:</strong> ${producto.personalizacion ? "Sí" : "No"}</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn btn-success m-1" onclick="enviarAInicio(${index})">Enviar a Inicio</button>
+                            <button class="btn btn-primary m-1" onclick="enviarAProductos(${index})">Enviar a Productos</button>
+                        </div>
+                    </div>
+                `;
+                contenedor.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error al cargar productos:', error);
+        });
 });
 
 // Funciones para enviar

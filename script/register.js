@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             password 
         };
 
-        fetch('http://localhost:8080/api/v2/users', {
+        fetch(`http://localhost:8080/api/v2/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mostrarModal('Registro exitoso 🎉');
             registerForm.reset();
             setTimeout(() => {
-                window.location.href = '/index.html';
+                window.location.href = '/pages/login.html';
             }, 2000);
         })
         .catch(error => {

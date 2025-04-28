@@ -5,58 +5,66 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         // Capturar datos del formulario
-        const nombre = document.getElementById('nombreProducto').value.trim();
-        const descripcion = document.getElementById('descripcionProducto').value.trim();
-        const categoriaSelect = document.getElementById('categoriaProducto');
-        const categoria = categoriaSelect.options[categoriaSelect.selectedIndex].text;
-        const precio = parseFloat(document.getElementById('precioProducto').value);
+        const name = document.getElementById('nombreProducto').value.trim();
+        const description = document.getElementById('descripcionProducto').value.trim();
+        const categorySelect = document.getElementById('categoriaProducto');
+        const category = categorySelect.options[categorySelect.selectedIndex].text;
+        const price = parseFloat(document.getElementById('precioProducto').value);
         const stock = parseInt(document.getElementById('stockProducto').value);
-        const dimensiones = `${document.getElementById('largoProducto').value}x${document.getElementById('anchoProducto').value}x${document.getElementById('altoProducto').value} cm`;
-        const peso = parseFloat(document.getElementById('pesoProducto').value);
-        const imagen = document.getElementById('formFile').value; // Aquí debes usar <input type="text"> para que el usuario pegue la URL
-        const personalizacion = document.getElementById('personalizacion').checked;
+        const dimensions = `${document.getElementById('largoProducto').value}x${document.getElementById('anchoProducto').value}x${document.getElementById('altoProducto').value} cm`;
+        const weight = parseFloat(document.getElementById('pesoProducto').value);
+        const imageUrl = document.getElementById('formFile').value; 
+        const customizable = document.getElementById('personalizacion').checked;
 
         // Material
-        const materiales = [];
-        if (document.getElementById('materialPLA').checked) materiales.push('PLA');
-        if (document.getElementById('materialABS').checked) materiales.push('ABS');
-        if (document.getElementById('materialPETG').checked) materiales.push('PETG');
+        const materials = [];
+        if (document.getElementById('materialPLA').checked) materials.push('PLA');
+        if (document.getElementById('materialABS').checked) materials.push('ABS');
+        if (document.getElementById('materialPETG').checked) materials.push('PETG');
 
         // Validación de entradas
-        if (!nombre || !descripcion || isNaN(precio) || isNaN(stock) || isNaN(peso) || !imagen) {
+        if (!name || !description || isNaN(price) || isNaN(stock) || isNaN(weight) || !imageUrl) {
             alert('Por favor, completa todos los campos.');
             return;
         }
 
         // Crear objeto producto
-        const producto = {
-            nombre,
-            descripcion,
-            categoria,
-            precio,
+        const nuevoProducto = {
+            name,
+            description,
+            category,
+            price,
             stock,
-            dimensiones,
-            peso,
-            imagen,
-            materiales,
-            personalizacion
+            dimensions,
+            weight,
+            imageUrl,
+            materials: materials.join(', '),
+            customizable
         };
 
-        // Guardar en localStorage
-        const productos = JSON.parse(localStorage.getItem('productos')) || [];
-        productos.push(producto);
-        localStorage.setItem('productos', JSON.stringify(productos));
-
-        // alert('Producto guardado exitosamente.');
-        const toast = new bootstrap.Toast(document.getElementById('liveToast'));
-        toast.show();
-
-        // Limpiar el formulario
-        form.reset();
-
-        // Limpiar la vista previa de la imagen
-        imagePreview.src = "";
-        imagePreview.style.display = 'none';
+        // Guardar objetos
+        fetch(`http://localhost:8080/api/v2/products`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(nuevoProducto)
+        })
+        .then(response => {
+            if(!response.ok) {
+                throw new Error('No se pudo agregar el producto');
+            }
+            return response.json();
+        })
+        .then(data => {
+            mostrarToast('Producto agregado exitosamente.');
+            productForm.reset();
+            document.getElementById('imagePreview').style.display = 'none';
+        })
+        .catch(error => {
+            console.error('Error', error);
+            mostrarToast('Error al agregar producto.');
+        });
     });
 
     // Mostrar vista previa de imagen al escribir URL
@@ -73,3 +81,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+function mostrarToast(mensaje) {
+    const toast = document.getElementById('toast');
+    const toastBody = toast.querySelector('.toast-body');
+    toastBody.textContent = mensaje;
+    const bsToast = new bootstrap.Toast(toast);
+    bsToast.show();
+}

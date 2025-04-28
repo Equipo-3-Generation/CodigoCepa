@@ -1,6 +1,11 @@
 //Carrusel
 document.addEventListener("DOMContentLoaded", function() {
 
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
+    if (usuarioActual) {
+        console.log('Bienvenida, ' + usuarioActual.name);
+    }
+
     // Cards
     const ratings = document.querySelectorAll(".rating");
 
